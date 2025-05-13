@@ -1,0 +1,22 @@
+.gecisli1{
+    width: 20%; background: linear-gradient(to right, #FFFF00, #CCFF00, #99FF00, #66FF00, #33FF00 );
+}
+.gecisli2{
+    width: 30%; background: linear-gradient(to left, #FF99CC, #CC66CC, #9966CC, #6666CC, #3399CC);
+}
+.gecisli3{
+    width: 40%; background: linear-gradient(to right top, #1c1c1c, #363636, #4f4f4f, #696969, #828282, #9c9c9c, #b5b5b5, #cfcfcf, #e8e8e8);
+}
+.gecisli4{
+    width: 50%; background: linear-gradient(30deg, rgb(139 137 112), rgb(205 201 165), rgb(238 233 191), rgb(255 250 205) );
+}
+.gecisli5{
+    width: 60%; background: linear-gradient(60deg, rgb(110 123 139), rgb(162 181 205), rgb(188 210 238), rgb(202 225 255));
+}
+.gecisli6{
+    width: 70%; background: linear-gradient(90deg, rgb(139 26 26), rgb(165 42 42), rgb(255 64 64), rgb(238 59 59), rgb(205 51 51));
+}
+div{ height: 100px; color: black; font-size: 20px; border-radius: 10px; }
+div:hover{
+    width: 1000px; cursor: hand;
+    transition-property: width; transition-duration: 0.5s; transition-delay: 0.1s; }

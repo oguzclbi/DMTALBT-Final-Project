@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Veri Giriş Özellikleri</title>
+    </head>
+    <body>
+        <form action="islem1.html" autocomplete="on">
+            <input formmethod="get" placeholder="Form Metodu get | post">
+            <input formnovalidate="formnovalidate" placeholder="Veri Tip Uyumu Kontrolsüz"><br></br>
+            <input type="email" name="eposta" id="eposta" autocomplete="on" placeholder="Otomatik açık">
+            <input type="date" id="tarihmin" name="tarihmin" min="2021-05-01">
+            <input type="number" id="aralik" min="1" max="5" placeholder="max">
+            <input type="password" pattern=".{6}" title="Altı veya daha fazla" placeholder="daha fazla">
+            <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z].{8})" placeholder="Şifre">
+            <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"placeholder="Eposta">
+            <input type="url" pattern="https?://.+" placeholder="http://dahil edin">
+            <input type="number" step="2" placeholder="Çift Sayı">
+            <input list="hazirliste"><datalist id="hazirliste">
+                <option value="Öğretmen"></option>
+                <option value="Öğrenci"></option>
+                <option value="Veli"></option>
+            </datalist>
+            <input type="submit" value="Gönder">
+            <input type="submit" formaction="islem2.html" value="Gönder">
+
+        </form>
+    </body>
+</html>

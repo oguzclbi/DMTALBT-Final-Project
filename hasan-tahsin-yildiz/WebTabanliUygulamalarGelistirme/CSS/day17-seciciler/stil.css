@@ -1,0 +1,10 @@
+body{background-color: skyblue;}
+div{
+    border: 2px gray;
+    border-color: gray;
+    border-style: solid;
+    width: 20px;
+    height: 20px;
+    background-color: orange;
+    text-align: center;
+}

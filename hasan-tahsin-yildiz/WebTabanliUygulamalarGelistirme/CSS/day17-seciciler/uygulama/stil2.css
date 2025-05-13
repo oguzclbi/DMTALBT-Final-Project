@@ -1,0 +1,12 @@
+body{background-color: green;}
+.harf{
+    font-size: 30px;
+}
+#ozelHarf{
+    font-size: 40px;
+    color: red;
+}
+#ozelHarf2{
+    font-size: 40px;
+    color: yellow;
+}

@@ -1,0 +1,22 @@
+.kart{
+    width: 150px; height: 200px; background-color: #021037;
+    color: white; border-radius: 10px; text-align: center;
+    display: inline-block; margin-right: 20px;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+.profilSablon{
+    position: relative; width: 150px; height: 100px;
+    background: url(yildizlar.jpg);
+    background-size: 150px 100px; background-position: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.profilResim{
+    position: absolute; left: 50px; top: 75px;
+    width: 50px; height: 50px; border-radius: 25px;
+    border: 2px solid white; z-index: 2;
+}
+
+.kart p{font-size: 10px; margin-top: 30px;}
+.kart b{font-size: 12px;}
+.kart hr{width: 100px; margin-left: 25px;}

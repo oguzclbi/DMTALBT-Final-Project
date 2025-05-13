@@ -1,0 +1,5 @@
+body{background-color: indigo;}
+a:link{color: orange; font-size: 22px;}
+a:visited{color: gray;}
+a:hover{background-color: white; cursor: hand;}
+a:active{font-size: 30px;}
