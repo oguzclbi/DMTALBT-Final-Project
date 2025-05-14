@@ -1,0 +1,10 @@
+#icerik_ekleme::before{
+    content: '(önceki)';
+    background-color: red;
+    color: white;
+}
+#icerik_ekleme::after{
+    content: "(sonraki)";
+    background-color: blue;
+    color: white;
+}

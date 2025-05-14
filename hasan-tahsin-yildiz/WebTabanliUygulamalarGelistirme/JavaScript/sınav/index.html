@@ -1,0 +1,52 @@
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Ticaret Tanıtım Sayfası</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+    <!--Üst Başlık Bölümü-->
+    <header>
+        <h1>E-Ticaret Tanıtım Sayfası</h1><!--Site Ana Başlığı-->
+        <nav>
+            <ul>
+                <li><a href="#">Anasayfa</a></li>
+                <li><a href="#">Ürünler</a></li>
+                <li><a href="#">İletişim</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!--Sepet bölümü, sağ üstte sabit duracak-->
+    <section class="sepet">
+        <h2>Sepetiniz</h2>
+        <div id="sepet-icerik">Sepetiniz Boş.</div>
+    </section>
+    <main>
+        <section class="urunler">
+            <div class="urun">
+                <img src="product1.jpg" alt="Ürün 1:Modern Kulaklık">
+                <h3>Ürün 1</h3>
+                <p>Fiyat: 100TL</p>
+                <button onclick="sepeteEkle('Ürün 1', 100, 'product1.jpg')">Sepete Ekle</button>
+            </div>
+            <div class="urun">
+                <img src="product2.jpg" alt="Ürün 2: Akıllı Saat">
+                <h3>Ürün 2</h3>
+                <p>Fiyat: 200TL</p>
+                <button onclick="sepeteEkle('Ürün 2', 200, 'product2.jpg')">Sepete Ekle</button>
+            </div>
+            <div class="urun">
+                <img src="product3.jpg" alt="Ürün 3: Şık Çanta">
+                <h3>Ürün 2</h3>
+                <p>Fiyat: 150TL</p>
+                <button onclick="sepeteEkle('Ürün 3', 150, 'product3.jpg')">Sepete Ekle</button>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2025 E-Ticaret Site</p>
+    </footer>
+</body>
+</html>

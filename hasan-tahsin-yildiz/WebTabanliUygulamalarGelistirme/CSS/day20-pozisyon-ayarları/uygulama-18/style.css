@@ -1,0 +1,7 @@
+div{
+    background-color: lightskyblue;
+    display: inline-block; border: 2px solid black;
+}
+.Kutu1{width: 100px; height: 150px;}
+.Kutu2{width: 200px; height: 150px; position: relative;}
+.Kutu3{width: 120px; height: 70px; position: absolute; left: 50px; top: 50px;}

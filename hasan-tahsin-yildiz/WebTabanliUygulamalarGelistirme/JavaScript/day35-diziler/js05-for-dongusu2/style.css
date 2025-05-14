@@ -1,0 +1,7 @@
+body{
+    background-color: gray;
+    margin: 20px;
+}
+#tahtaCerceve{width: 240px; height: 240px; border: 30px solid black;}
+.kareBeyaz{width: 30px; height: 30px; background-color: white; float:left;}
+.kareSiyah{width: 30px; height: 30px; background-color: black; float:left;}
