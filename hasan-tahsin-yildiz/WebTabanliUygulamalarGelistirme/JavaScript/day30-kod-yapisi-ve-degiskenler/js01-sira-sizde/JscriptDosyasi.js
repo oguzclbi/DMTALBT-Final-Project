@@ -1,1 +1,0 @@
-alert("Harici JavaScript kodu çalışıyor.")

@@ -1,5 +1,0 @@
-div{width: 250px; background-color: indigo;
-color: white; border-radius: 5px;
-}
-p::first-letter{font-size: 20px; font-size: bold; margin-left: 10px;}
-p::first-line{background-color: orange; color:black}
