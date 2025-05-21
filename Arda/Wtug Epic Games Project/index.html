@@ -1318,25 +1318,33 @@
 
 
 
-        <div class="trailer-section">
-          <div class="video-player">
-            <video id="mainVideo" src="videolar/Grand Theft Auto V The Official Trailer.mp4" muted autoplay></video>
-          </div>
-          <div class="video-sidebar" id="videoSidebar">
-            <div class="video-thumb active" data-src="videolar/God of War Ragnarök - Baba ve Oğul Sinematik Fragman  PS5 & PS4.mp4">
-              <img src="görseller/godofwar.jpg" alt="Game 1">
-              <video class="hover-preview" src="videolar/God of War Ragnarök - Baba ve Oğul Sinematik Fragman  PS5 & PS4.mp4" muted loop></video>
+        <div class="video-player-container">
+          <video id="mainVideo" width="640" height="360" muted autoplay></video>
+          <div class="thumbnails">
+            <!-- Her thumbnail bir div ve data-video ile video dosyasını tutuyor -->
+            <div class="thumb active" data-video="videolar/God of War Ragnarök - Baba ve Oğul Sinematik Fragman  PS5 & PS4.mp4">
+              <img src="görseller/godofwar.jpg" alt="FM24" />
             </div>
-            <div class="video-thumb" data-src="videolar/Farming Simulator 25 Cinematic Trailer (Announcement).mp4">
-              <img src="görseller/fs255.jpg" alt="Game 2">
-              <video class="hover-preview" src="videolar/Farming Simulator 25 Cinematic Trailer (Announcement).mp4" muted loop></video>
+            <div class="thumb" data-video="videolar/Marvel’s Spider-Man Remastered – Launch Trailer I PC Games.mp4">
+              <img src="görseller/spiderman2.jpg" alt="Oyun 2" />
             </div>
-            <div class="video-thumb" data-src="videolar/Red Dead Redemption 2 Official Trailer #3.mp4">
-              <img src="görseller/rdr22.jpg" alt="Game 3">
-              <video class="hover-preview" src="videolar/Red Dead Redemption 2 Official Trailer #3.mp4" muted loop></video>
+            <div class="thumb" data-video="videolar/RoadCraft - Launch Trailer  PS5 Games.mp4">
+              <img src="görseller/roadcraft-vdouz.jpg" alt="Oyun 3" />
+            </div>
+             <div class="thumb" data-video="videolar/The Last of Us Part 1 Türkçe Dublajlı Çıkış Fragmanı.mp4">
+              <img src="görseller/lastofus1.jpg" alt="Oyun 4" />
+            </div>
+             <div class="thumb" data-video="videolar/Farming Simulator 25 Cinematic Trailer (Announcement).mp4">
+              <img src="görseller/fs255.jpg" alt="Oyun 5" />
             </div>
           </div>
         </div>
+
+
+
+
+
+
 
 
 

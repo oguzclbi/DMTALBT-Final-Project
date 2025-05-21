@@ -981,40 +981,58 @@ function searchGames() {
 
 
 
-let currentVideoIndex = 0;
-const videoList = document.querySelectorAll(".video-thumb");
-const mainVideo = document.getElementById("mainVideo");
 
-function playVideoAtIndex(index) {
-    videoList.forEach((thumb) => thumb.classList.remove("active"));
-    videoList[index].classList.add("active");
-    const newSrc = videoList[index].getAttribute("data-src");
-    mainVideo.src = newSrc;
-    mainVideo.play();
-    currentVideoIndex = index;
-}
 
-setInterval(() => {
-    currentVideoIndex = (currentVideoIndex + 1) % videoList.length;
-    playVideoAtIndex(currentVideoIndex);
-}, 60000);
+    
+document.addEventListener("DOMContentLoaded", () => {
+  const mainVideo = document.getElementById("mainVideo");
+        const thumbs = document.querySelectorAll(".thumb");
+        let currentIndex = 0;
 
-videoList.forEach((thumb, index) => {
-    thumb.addEventListener("click", () => {
-        playVideoAtIndex(index);
-    });
-});
+  const videos = Array.from(thumbs).map(t => t.getAttribute("data-video"));
 
-mainVideo.addEventListener("mouseenter", () => {
-    mainVideo.muted = false;
-});
-mainVideo.addEventListener("mouseleave", () => {
-    mainVideo.muted = true;
-});
+        function loadVideo(index) {
+            currentIndex = index;
+        mainVideo.src = videos[index];
+    mainVideo.play().catch(() => { });
+        updateActiveThumb();
+  }
 
-mainVideo.addEventListener("click", () => {
+        function updateActiveThumb() {
+            thumbs.forEach((t, i) => {
+                if (i === currentIndex) t.classList.add("active");
+                else t.classList.remove("active");
+            });
+  }
+
+  thumbs.forEach((thumb, i) => {
+            thumb.addEventListener("click", () => {
+                loadVideo(i);
+            });
+  });
+
+  mainVideo.addEventListener("ended", () => {
+            let nextIndex = (currentIndex + 1) % videos.length;
+        loadVideo(nextIndex);
+  });
+
+  mainVideo.addEventListener("mouseenter", () => {
+            mainVideo.muted = false;
+  });
+  mainVideo.addEventListener("mouseleave", () => {
+            mainVideo.muted = true;
+  });
+
+  // Video tıklanınca tam ekran yap
+  mainVideo.addEventListener("click", () => {
     if (mainVideo.requestFullscreen) {
-        mainVideo.requestFullscreen();
+            mainVideo.requestFullscreen();
+    } else if (mainVideo.webkitRequestFullscreen) { /* Safari */
+            mainVideo.webkitRequestFullscreen();
+    } else if (mainVideo.msRequestFullscreen) { /* IE11 */
+            mainVideo.msRequestFullscreen();
     }
-});
+  });
 
+        loadVideo(0);
+});
