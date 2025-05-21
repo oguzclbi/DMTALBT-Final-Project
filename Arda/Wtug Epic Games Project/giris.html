@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="görseller/EA-Games.png">
+    <title>Giriş Yap</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: #121212;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: "Segoe UI", sans-serif;
+            color: #fff;
+        }
+
+        .login-container {
+            text-align: center;
+            background: #1e1e1e;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 300px;
+            /* Formun genişliği */
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        input {
+            padding: 12px 20px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background: #2a2a2a;
+            color: #fff;
+            width: 85%;
+        }
+
+        input::placeholder {
+            color: #aaa;
+        }
+
+        button {
+            padding: 12px 25px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background: #0078f2;
+            color: #fff;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: 100%;
+        }
+
+        button:hover {
+            background: #005ac1;
+        }
+
+        #logoutBtn {
+            background: #e63946;
+        }
+
+        #logoutBtn:hover {
+            background: #c5303c;
+        }
+
+        .checkbox-container {
+            margin-left: -550px;
+            font-size: 14px;
+        }
+
+        .checkbox-container input {
+            margin-right: 8px;
+        }
+
+        .error {
+            color: #e63946;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+
+        label {
+            margin-left: -350px;
+        }
+    </style>
+
+
+
+</head>
+
+
+<body>
+
+
+
+    <div class="login-container">
+        <h2>Giriş Yap</h2>
+
+        <input type="text" id="userNameInput" placeholder="Kullanıcı Adı">
+        <input type="email" id="emailInput" placeholder="E-Posta">
+        <input type="password" id="passwordInput" placeholder="Şifre">
+
+        <div class="checkbox-container">
+            <input type="checkbox" id="rememberMe"><label for="rememberMe">Beni Hatırla</label>
+        </div>
+
+        <button id="loginBtn">Giriş Yap</button>
+        <button id="logoutBtn" style="display: none;" onclick="logout()">Çıkış Yap</button>
+
+        <p class="error" id="errorMessage" style="display: none;"></p><br>
+        <button class="back-btn" onclick="window.location.href='index.html'">Anasayfaya Dön</button>
+    </div>
+
+
+
+
+
+
+
+    <script>
+
+
+
+        window.addEventListener("DOMContentLoaded", () => {
+            const storedName = localStorage.getItem("userName");
+            const loginBtn = document.getElementById("loginBtn");
+            const logoutBtn = document.getElementById("logoutBtn");
+            const userNameInput = document.getElementById("userNameInput");
+            const emailInput = document.getElementById("emailInput");
+            const passwordInput = document.getElementById("passwordInput");
+            const rememberMe = document.getElementById("rememberMe");
+            const errorMessage = document.getElementById("errorMessage");
+
+            // Eğer giriş yapılmışsa, giriş butonunu değiştir ve çıkış butonunu göster
+            if (storedName) {
+                userNameInput.style.display = "none";
+                emailInput.style.display = "none";
+                passwordInput.style.display = "none";
+                loginBtn.disabled = true;
+                loginBtn.textContent = "Zaten Giriş Yapıldı";
+                logoutBtn.style.display = "inline-block";
+                document.querySelector(".checkbox-container").style.display = "none"; // Beni Hatırla kısmını gizle
+            }
+
+            // Giriş yap butonuna tıklandığında
+            loginBtn.addEventListener("click", () => {
+                const name = userNameInput.value.trim();
+                const email = emailInput.value.trim();
+                const password = passwordInput.value.trim();
+
+                // Hataları temizle
+                errorMessage.style.display = "none";
+
+                // Alanların boş olup olmadığını kontrol et
+                if (!name || !email || !password) {
+                    showError("Lütfen tüm alanları doldurun.");
+                    return;
+                }
+
+                // Email kontrolü
+                if (!validateEmail(email)) {
+                    showError("Geçerli bir e-posta adresi girin.");
+                    return;
+                }
+
+                // Şifre kontrolü
+                if (password.length < 6) {
+                    showError("Şifre en az 6 karakter olmalıdır.");
+                    return;
+                }
+
+                // Eğer Beni Hatırla işaretlendi ise, kullanıcı bilgilerini kaydet
+                if (rememberMe.checked) {
+                    localStorage.setItem("userName", name);
+                    localStorage.setItem("userEmail", email);
+                }
+
+                // Giriş başarılı olduğunda
+                localStorage.setItem("userName", name);
+                window.location.href = "index.html"; // Anasayfaya yönlendir
+            });
+
+            // Çıkış yap butonuna tıklandığında
+            logoutBtn.addEventListener("click", () => {
+                localStorage.removeItem("userName");
+                localStorage.removeItem("userEmail");
+                location.reload();
+            });
+
+            // Email geçerliliği kontrol fonksiyonu
+            function validateEmail(email) {
+                const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+                return emailPattern.test(email);
+            }
+
+            // Hata mesajı gösterme fonksiyonu
+            function showError(message) {
+                errorMessage.textContent = message;
+                errorMessage.style.display = "block";
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EA Games Store | PC Oyunları</title>
+  <link rel="stylesheet" href="görseller/EA-Games.png">
+
+  <link rel="stylesheet" href="giris.html">
+  <link rel="stylesheet" href="istek-listesi.html">
+  <link rel="stylesheet" href="sepet.html">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+
+
+
+
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+
+
+
+
+  <body class="bg-gray-900 text-white">
+
+    <header class="flex items-center justify-between p-4 bg-black shadow-lg">
+      <!-- Logo -->
+      <div class="flex items-center space-x-2">
+        <img src="görseller/EA-Games.png" alt="Logo" class="h-8">
+        <span class="epic-store-title"><a href="index.html">STORE</a></span>
+      </div>
+
+      <!-- Menü -->
+      <nav class="hidden md:flex items-left space-x-6">
+        <a href="#" class="hover:text-gray-400 transition">Mağaza</a>
+        <a href="#" class="hover:text-gray-400 transition">Haberler</a>
+        <a href="#" class="hover:text-gray-400 transition">Destek</a>
+      </nav>
+
+      <!-- Butonlar -->
+      <div class="flex items-center space-x-4">
+        <div class="lang-switcher">
+          <button class="lang-btn" onclick="toggleLangMenu()">
+            🌐 <span id="currentLang">TR</span>
+          </button>
+          <div id="langMenu" class="lang-menu">
+            <button onclick="selectLanguage('tr')">🇹🇷 Türkçe</button>
+            <button onclick="selectLanguage('en')">🇬🇧 English</button>
+            <button onclick="selectLanguage('de')">🇩🇪 Deutsch</button>
+            <button onclick="selectLanguage('fr')">🇫🇷 Français</button>
+            <button onclick="selectLanguage('es')">🇪🇸 Español</button>
+          </div>
+        </div>
+
+
+        <a href="profil.html"><span id="userNameDisplay"></span></a>
+        <a
+          href="https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/installer/download/EpicGamesLauncherInstaller.msi">
+          <button class="px-4 py-2 bg-white text-black hover:bg-gray-200 rounded">İndir</button>
+        </a>
+      </div>
+    </header>
+
+
+
+
+
+
+
+
+
+    <div class="navbar">
+      <div class="search-container">
+        <div class="search-bar">
+          <input type="text" id="searchInput" placeholder="Oyun ara..." onkeyup="searchGames()">
+          <button><i class="fa fa-search"></i></button>
+        </div>
+        <div id="searchResults" class="search-results"></div>
+      </div>
+      <div class="menu-icons">
+        <a href="istek-listesi.html"><i class="fas fa-heart"></i></a>
+        <a href="sepet.html"><i class="fas fa-shopping-cart"></i></a>
+        <a href="giris.html" id="loginBtn" style="display:inline-block">
+          <a href="giris.html"><i class="fas fa-user" id="userIcon"></i></a>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <main>
+      <center>
+        <div class="slider-container">
+          <div class="slides">
+
+            <div class="slide">
+              <img src="görseller/gtaV.jpg" alt="Cyber War">
+              <div class="slide-content">
+                <h2>Grand Theft Auto V</h2>
+                <p>₺1.049</p>
+                <a href="#" class="btn">Sepete ekle</a>
+              </div>
+            </div>
+
+            <div class="slide">
+              <img src="görseller/reddeadII.jpg" alt="Battle Siege">
+              <div class="slide-content">
+                <h2>Red Dead Redemption 2</h2>
+                <p>₺2.299</p>
+                <a href="#" class="btn">Sepete ekle</a>
+              </div>
+            </div>
+
+            <div class="slide">
+              <img src="görseller/ets2.jpg" alt="Space Raiders">
+              <div class="slide-content">
+                <h2>Euro Truck Simulator 2</h2>
+                <p>₺387</p>
+                <a href="#" class="btn">Sepete ekle</a>
+              </div>
+            </div>
+
+            <div class="slide">
+              <img src="görseller/fs22.jpg" alt="Shadow Quest">
+              <div class="slide-content">
+                <h2>Farming Simulator 22</h2>
+                <p>₺340</p>
+                <a href="#" class="btn">Sepete ekle</a>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="arrow left">&#10094;</div>
+          <div class="arrow right">&#10095;</div>
+
+          <div class="dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+
+
+
+
+        <div class="header">
+          <h1>Ücretli Oyunlar ₺</h1>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="cards-container">
+
+          <div class="game-card" data-price="₺1800" data-category="Strateji">
+            <div class="card-img">
+              <img src="görseller/commands.jpg" alt="Oyun Adı">
+              <div class="discount-badge">%20 İNDİRİM!</div>
+              <div class="countdown" id="countdown1"></div>
+              <!-- Kalp Butonu -->
+              <button class="wishlistBtn"
+                onclick="toggleWishlist(this, 'Commandos: Origins', '₺1.800', 'görseller/commands.jpg')">
+                <i class="fas fa-plus"></i> <!-- Artı simgesi -->
+              </button>
+            </div>
+            <div class="card-content">
+              <h3>Commandos:Origins</h3>
+              <p>UYARI! Tüm dünyanın kaderini şekillendirecek bir görev için seçildin.
+                Commandos: Origins'te efsanevi seçkin savaşçı.
+                sen seçilmiş kişisin. Özel görevler için seçildin</p>
+
+
+              <div class="price-area">
+                <span class="old-price">₺1.800</span>
+                <span class="discounted-price">₺1.440</span>
+              </div>
+
+
+              <!-- Puanlama Sistemi -->
+              <div class="rating" data-game="Commandos: Origins">
+                <span class="star" data-value="1">&#9733;</span>
+                <span class="star" data-value="2">&#9733;</span>
+                <span class="star" data-value="3">&#9733;</span>
+                <span class="star" data-value="4">&#9733;</span>
+                <span class="star" data-value="5">&#9733;</span>
+              </div>
+              <button class="buy-btn">Sepete ekle</button>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+          <div class="game-card" data-price="₺180" data-category="Aksiyon">
+            <div class="card-img">
+              <img src="görseller/deadbydaylight.jpg" alt="Oyun Adı">
+              <div class="discount-badge">%20 İNDİRİM!</div>
+              <div class="countdown" id="countdown2"></div>
+              <!-- Kalp Butonu -->
+              <button class="wishlistBtn"
+                onclick="toggleWishlist(this, 'Dead by Dylight', '₺180', 'görseller/deadbydaylight.jpg')">
+                <i class="fas fa-plus"></i> <!-- Artı simgesi -->
+              </button>
+            </div>
+            <div class="card-content">
+              <h3>Dead by Dylight</h3>
+              <p>Dead By Daylight, Behavior Interactive tarafından geliştirilen asimetrik bir hayatta kalma-korku video
+                ve macera tarzında bir
+                oyunudur.</p>
+              <div class="price-area">
+                <span class="old-price">₺180</span>
+                <span class="discounted-price">₺144</span>
+              </div>
+              <div class="rating" data-game="Dead by Dylight">
+                <span class="star" data-value="1">&#9733;</span>
+                <span class="star" data-value="2">&#9733;</span>
+                <span class="star" data-value="3">&#9733;</span>
+                <span class="star" data-value="4">&#9733;</span>
+                <span class="star" data-value="5">&#9733;</span>
+              </div>
+              <button class="buy-btn">Sepete ekle</button>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+          <div class="game-card" data-price="₺359" data-category="Aksiyon">
+            <div class="card-img">
+              <img src="görseller/deadzone2.jpg" alt="Oyun Adı">
+              <!-- Kalp Butonu -->
+              <button class="wishlistBtn"
+                onclick="toggleWishlist(this, 'Deadzone:Rogue', '₺359', 'görseller/deadzone2.jpg')">
+                <i class="fas fa-plus"></i> <!-- Artı simgesi -->
+              </button>
+            </div>
+            <div class="card-content">
+              <h3>Deadzone:Rogue</h3>
+              <p>Deadzone: Rogue, derin uzayda geçen bir roguelite birinci şahıs nişancı oyunudur . Her benzersiz koşuda
+                düşman ordularını öldürün, ekipmanınızı özelleştirin.</p>
+              <h3 class="price">₺359</h3>
+              <div class="rating" data-game="Deadzone:Rogue">
+                <span class="star" data-value="1">&#9733;</span>
+                <span class="star" data-value="2">&#9733;</span>
+                <span class="star" data-value="3">&#9733;</span>
+                <span class="star" data-value="4">&#9733;</span>
+                <span class="star" data-value="5">&#9733;</span>
+              </div>
+              <button class="buy-btn">Sepete ekle</button>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <div class="game-card" data-price="₺6,60" data-category="Aksiyon">
+            <div class="card-img">
+              <img src="görseller/patron.jpg" alt="Oyun Adı">
+              <!-- Kalp Butonu -->
+              <button class="wishlistBtn" onclick="toggleWishlist(this, 'Patron', '₺6,60', 'görseller/patron.jpg')">
+                <i class="fas fa-plus"></i> <!-- Artı simgesi -->
+              </button>
+            </div>
+            <div class="card-content">
+              <h3>Patron</h3>
+              <p>Patron, benzersiz bir sosyal dinamik sistemine sahip bir hayatta kalma şehir kurucusudur. Kaynak
+                toplayın, köy inşa edin, kendi krallığınızı kurun ve üretin.</p>
+              <h3 class="price">₺6,60</h3>
+              <div class="rating" data-game="Patron">
+                <span class="star" data-value="1">&#9733;</span>
+                <span class="star" data-value="2">&#9733;</span>
+                <span class="star" data-value="3">&#9733;</span>
+                <span class="star" data-value="4">&#9733;</span>
+                <span class="star" data-value="5">&#9733;</span>
+              </div>
+              <button class="buy-btn">Sepete ekle</button>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <div class="game-card" data-price="₺820" data-category="Aksiyon">
+            <div class="card-img">
+              <img src="görseller/Clair-Obscur-Expedition-33.jpg" alt="Oyun Adı">
+              <div class="discount-badge">%20 İNDİRİM!</div>
+              <div class="countdown" id="countdown3"></div>
+              <!-- Kalp Butonu -->
+              <button class="wishlistBtn"
+                onclick="toggleWishlist(this, 'Clair Obscur:Expedition 33', '₺820', 'görseller/Clair-Obscur-Expedition-33.jpg')">
+                <i class="fas fa-plus"></i> <!-- Artı simgesi -->
+              </button>
+            </div>
+            <div class="card-content">
+              <h3>Clair Obscur:Expedition 33</h3>
+              <p>Clair Obscur: Expedition 33, Sandfall Interactive tarafından geliştirilip
+                Kepler Interactive tarafından 2025'te yayınlanan bir rol yapma video oyunudur.</p>
+              <div class="price-area">
+                <span class="old-price">₺820</span>
+                <span class="discounted-price">₺656</span>
+              </div>
+              <div class="rating" data-game="Clair Obscur:Expedition 33">
+                <span class="star" data-value="1">&#9733;</span>
+                <span class="star" data-value="2">&#9733;</span>
+                <span class="star" data-value="3">&#9733;</span>
+                <span class="star" data-value="4">&#9733;</span>
+                <span class="star" data-value="5">&#9733;</span>
+              </div>
+              <button class="buy-btn">Sepete ekle</button>
+            </div>
+          </div>
+
+
+          <div class="game-card" data-price="₺1268" data-category="Aksiyon">
+            <div class="card-img">
+              <img src="görseller/arena2.jpg" alt="Oyun Adı">
+              <!-- Kalp Butonu -->
+              <button class="wishlistBtn"
+                onclick="toggleWishlist(this, 'Escape from Tarkov: Arena', '₺1.268', 'görseller/arena2.jpg')">
+                <i class="fas fa-plus"></i> <!-- Artı simgesi -->
+              </button>
+            </div>
+            <div class="card-content">
+              <h3>Escape from Tarkov: Arena</h3>
+              <p>Tarkov'dan Kaçış: Arena, beceri ve takım çalışmasının kritik olduğu, gerçekçi bir taktiksel nişancı
+                oyunudur.</p>
+              <h3 class="price">₺1.268</h3>
+              <div class="rating" data-game="Escape from Tarkov: Arena">
+                <span class="star" data-value="1">&#9733;</span>
+                <span class="star" data-value="2">&#9733;</span>
+                <span class="star" data-value="3">&#9733;</span>
+                <span class="star" data-value="4">&#9733;</span>
+                <span class="star" data-value="5">&#9733;</span>
+              </div>
+              <button class="buy-btn">Sepete ekle</button>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+          <div class="game-card" data-price="₺35,90" data-category="Aksiyon">
+            <div class="card-img">
+              <img src="görseller/destiny.jpg" alt="Oyun Adı">
+              <!-- Kalp Butonu -->
+              <button class="wishlistBtn"
+                onclick="toggleWishlist(this, 'Destiny 2: Lightfall', '₺35,90', 'görseller/destiny.jpg')">
+                <i class="fas fa-plus"></i> <!-- Artı simgesi -->
+              </button>
+            </div>
+            <div class="card-content">
+              <h3>Destiny 2: Lightfall</h3>
+              <p>Tanık geldi. Yeni ödüllerin kilidini aç, yeni bir alt sınıfta ustalaş. Neptün'ü, yeni baskını ve
+                Lightfall'un Efsanevi Modunu keşfet.</p>
+              <h3 class="price">₺35,90</h3>
+              <div class="rating" data-game="Destiny 2: Lightfall">
+                <span class="star" data-value="1">&#9733;</span>
+                <span class="star" data-value="2">&#9733;</span>
+                <span class="star" data-value="3">&#9733;</span>
+                <span class="star" data-value="4">&#9733;</span>
+                <span class="star" data-value="5">&#9733;</span>
+              </div>
+              <button class="buy-btn">Sepete ekle</button>
+            </div>
+          </div>
+
+
+          <div class="game-card" data-price="₺1249" data-category="Aksiyon">
+            <div class="card-img">
+              <img src="görseller/lastof.jpg" alt="Oyun Adı">
+              <div class="discount-badge">%20 İNDİRİM!</div>
+              <div class="countdown" id="countdown4"></div>
+              <!-- Kalp Butonu -->
+              <button class="wishlistBtn"
+                onclick="toggleWishlist(this, 'The Last of Us:PartII', '₺1.249', 'görseller/lastof.jpg')">
+                <i class="fas fa-plus"></i> <!-- Artı simgesi -->
+              </button>
+            </div>
+            <div class="card-content">
+              <h3>The Last of Us:PartII</h3>
+              <p>The Last of Us Part II, Naughty Dog tarafından geliştirilen 2020 çıkışlı post apokaliptik
+                aksiyon-macera oyunudur.</p>
+              <div class="price-area">
+                <span class="old-price">₺1.249</span>
+                <span class="discounted-price">₺1.000</span>
+              </div>
+              <div class="rating" data-game="The Last of Us:PartII">
+                <span class="star" data-value="1">&#9733;</span>
+                <span class="star" data-value="2">&#9733;</span>
+                <span class="star" data-value="3">&#9733;</span>
+                <span class="star" data-value="4">&#9733;</span>
+                <span class="star" data-value="5">&#9733;</span>
+              </div>
+              <button class="buy-btn">Sepete ekle</button>
+            </div>
+          </div>
+
+
+
+          <div class="game-card" data-price="₺549" data-category="Aksiyon">
+            <div class="card-img">
+              <img src="görseller/fs25.jpg" alt="Oyun Adı">
+              <!-- Kalp Butonu -->
+              <button class="wishlistBtn"
+                onclick="toggleWishlist(this, 'Farming Simulator 25', '₺549', 'görseller/fs25.jpg')">
+                <i class="fas fa-plus"></i> <!-- Artı simgesi -->
+              </button>
+            </div>
+            <div class="card-content">
+              <h3>Farming Simulator 25</h3>
+              <p>Farming Simulator 25, üç haritaya pirinç ve diğer mahsuller, yeni hayvanlar, üretimler ve daha
+                fazlasını ekliyor.</p>
+              <h3 class="price">₺549</h3>
+              <div class="rating" data-game="Farming Simulator 25">
+                <span class="star" data-value="1">&#9733;</span>
+                <span class="star" data-value="2">&#9733;</span>
+                <span class="star" data-value="3">&#9733;</span>
+                <span class="star" data-value="4">&#9733;</span>
+                <span class="star" data-value="5">&#9733;</span>
+              </div>
+              <button class="buy-btn">Sepete ekle</button>
+            </div>
+          </div>
+
+
+
+
+          <div class="game-card" data-price="₺499" data-category="Aksiyon">
+            <div class="card-img">
+              <img src="görseller/tank.jpg" alt="Oyun Adı">
+              <!-- Kalp Butonu -->
+              <button class="wishlistBtn" onclick="toggleWishlist(this, 'Tank Kafası', '₺499', 'görseller/tank.jpg')">
+                <i class="fas fa-plus"></i> <!-- Artı simgesi -->
+              </button>
+            </div>
+            <div class="card-content">
+              <h3>Tank Kafası</h3>
+              <p>Issız ECA'da drone kontrollü bir tanka pilotluk yapan Whitaker olarak yüksek tempolu heyecan verici bir
+                maceraya atıl.</p>
+              <h3 class="price">₺499</h3>
+              <div class="rating" data-game="Tank Kafası">
+                <span class="star" data-value="1">&#9733;</span>
+                <span class="star" data-value="2">&#9733;</span>
+                <span class="star" data-value="3">&#9733;</span>
+                <span class="star" data-value="4">&#9733;</span>
+                <span class="star" data-value="5">&#9733;</span>
+              </div>
+              <button class="buy-btn">Sepete ekle</button>
+            </div>
+          </div>
+
+
+
+
+          <div class="game-card" data-price="₺1132" data-category="Aksiyon">
+            <div class="card-img">
+              <img src="görseller/slienthill2.jpg" alt="Oyun Adı">
+              <!-- Kalp Butonu -->
+              <button class="wishlistBtn"
+                onclick="toggleWishlist(this, 'Slient Hill 2', '₺1.132', 'görseller/slienthill2.jpg')">
+                <i class="fas fa-plus"></i> <!-- Artı simgesi -->
+              </button>
+            </div>
+            <div class="card-content">
+              <h3>Slient Hill 2</h3>
+              <p>Silent Hill 2, Konami tarafından PlayStation 2 konsolu için yayınlanan bir hayatta kalma-korku video
+                oyunudur.</p>
+              <h3 class="price">₺1.132</h3>
+              <div class="rating" data-game="Slient Hill 2">
+                <span class="star" data-value="1">&#9733;</span>
+                <span class="star" data-value="2">&#9733;</span>
+                <span class="star" data-value="3">&#9733;</span>
+                <span class="star" data-value="4">&#9733;</span>
+                <span class="star" data-value="5">&#9733;</span>
+              </div>
+              <button class="buy-btn">Sepete ekle</button>
+            </div>
+          </div>
+
+
+
+
+          <div class="game-card" data-price="₺1749" data-category="Aksiyon">
+            <div class="card-img">
+              <img src="görseller/asssin2.jpg" alt="Oyun Adı">
+              <!-- Kalp Butonu -->
+              <button class="wishlistBtn"
+                onclick="toggleWishlist(this, 'Assassin s Creed Shadows', '₺1.749', 'görseller/asssin2.jpg')">
+                <i class="fas fa-plus"></i> <!-- Artı simgesi -->
+              </button>
+            </div>
+            <div class="card-content">
+              <h3>Assassin's Creed Shadows</h3>
+              <p>Assassin's Creed Shadows, Ubisoft Quebec tarafından geliştirilen ve Ubisoft tarafından yayımlanan bir
+                aksiyon rol yapma oyunudur.</p>
+              <h3 class="price">₺1.749</h3>
+              <div class="rating" data-game="Assassin s Creed Shadows">
+                <span class="star" data-value="1">&#9733;</span>
+                <span class="star" data-value="2">&#9733;</span>
+                <span class="star" data-value="3">&#9733;</span>
+                <span class="star" data-value="4">&#9733;</span>
+                <span class="star" data-value="5">&#9733;</span>
+              </div>
+              <button class="buy-btn">Sepete ekle</button>
+            </div>
+          </div>
+
+
+
+
+          <div class="game-card" data-price="₺115" data-category="Aksiyon">
+            <div class="card-img">
+              <img src="görseller/carx2.jpg" alt="Oyun Adı">
+              <!-- Kalp Butonu -->
+              <button class="wishlistBtn"
+                onclick="toggleWishlist(this, 'CarX Drift Racing Online', '₺115', 'görseller/carx2.jpg')">
+                <i class="fas fa-plus"></i> <!-- Artı simgesi -->
+              </button>
+            </div>
+            <div class="card-content">
+              <h3>CarX Drift Racing Online</h3>
+              <p>CarX Drift Racing Online, driftin gerçek dünyasına dalmanız için bir şans. Arkadaşlarınızla ve
+                arabanızla bir araya gelin.</p>
+              <h3 class="price">₺115</h3>
+              <div class="rating" data-game="CarX Drift Racing Online">
+                <span class="star" data-value="1">&#9733;</span>
+                <span class="star" data-value="2">&#9733;</span>
+                <span class="star" data-value="3">&#9733;</span>
+                <span class="star" data-value="4">&#9733;</span>
+                <span class="star" data-value="5">&#9733;</span>
+              </div>
+              <button class="buy-btn">Sepete ekle</button>
+            </div>
+          </div>
+
+
+
+
+          <div class="game-card" data-price="₺2599" data-category="Aksiyon">
+            <div class="card-img">
+              <img src="görseller/fc25.jpg" alt="Oyun Adı">
+              <!-- Kalp Butonu -->
+              <button class="wishlistBtn"
+                onclick="toggleWishlist(this, 'EA SPORTS FC™ 25 Standart Sürüm', '₺2.599', 'görseller/fc25.jpg')">
+                <i class="fas fa-plus"></i> <!-- Artı simgesi -->
+              </button>
+            </div>
+            <div class="card-content">
+              <h3>EA SPORTS FC™ 25 Standart Sürüm</h3>
+              <p>EA SPORTS FC™ 25 kulüp için kazanmanız adına size daha fazla yol sunuyor.</p>
+              <h3 class="price">₺2.599</h3>
+              <div class="rating" data-game="EA SPORTS FC™ 25 Standart Sürüm">
+                <span class="star" data-value="1">&#9733;</span>
+                <span class="star" data-value="2">&#9733;</span>
+                <span class="star" data-value="3">&#9733;</span>
+                <span class="star" data-value="4">&#9733;</span>
+                <span class="star" data-value="5">&#9733;</span>
+              </div>
+              <button class="buy-btn">Sepete ekle</button>
+            </div>
+          </div>
+
+
+
+          <div class="game-card" data-price="₺1749" data-category="Aksiyon">
+            <div class="card-img">
+              <img src="görseller/readdead.jpg" alt="Oyun Adı">
+              <div class="discount-badge">%50 İNDİRİM!</div>
+              <div class="countdown" id="countdown5"></div>
+              <!-- Kalp Butonu -->
+              <button class="wishlistBtn"
+                onclick="toggleWishlist(this, 'Read Dead Redemption', '₺1.749', 'görseller/readdead.jpg')">
+                <i class="fas fa-plus"></i> <!-- Artı simgesi -->
+              </button>
+            </div>
+            <div class="card-content">
+              <h3>Read Dead Redemption</h3>
+              <p>Red Dead Redemption, Rockstar San Diego ile Rockstar North tarafından geliştirildi üçüncü şahıs nişancı
+                persfektifine sahip.</p>
+              <div class="price-area">
+                <span class="old-price">₺1.749</span>
+                <span class="discounted-price">₺875</span>
+              </div>
+              <div class="rating" data-game="Read Dead Redemption">
+                <span class="star" data-value="1">&#9733;</span>
+                <span class="star" data-value="2">&#9733;</span>
+                <span class="star" data-value="3">&#9733;</span>
+                <span class="star" data-value="4">&#9733;</span>
+                <span class="star" data-value="5">&#9733;</span>
+              </div>
+              <button class="buy-btn">Sepete ekle</button>
+            </div>
+          </div>
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="header">
+          <h1>Cyberpunk 2077</h1>
+        </div>
+
+        <div class="content">
+
+          <div class="game-info">
+            <img src="görseller/cyberpunk2.jpg" alt="Cyberpunk 2077">
+
+            <div class="details">
+              <h2>Oyun Hakkında</h2>
+              <p>Cyberpunk 2077, CD Projekt Red tarafından geliştirilen ve 2020 yılında CD Projekt
+                tarafından yayınlanan rol yapma türündeki video oyunudur. Cyberpunk serisinden uyarlanan oyun,
+                altı farklı bölgeye sahip distopik açık dünya olan Night City'de geçmektedir.</p>
+
+              <div class="price">₺1.744</div>
+              <a href="#" class="btn">Sepete ekle</a>
+            </div>
+          </div>
+
+          <div class="system-req">
+            <h3>Sistem Gereksinimleri</h3>
+            <ul>
+              <li><strong>İşletim Sistemi:</strong> Windows 10 (64-bit)</li>
+              <li><strong>İşlemci:</strong> Intel Core i7-4790 veya AMD Ryzen 3 3200G</li>
+              <li><strong>RAM:</strong> 12 GB</li>
+              <li><strong>Ekran Kartı:</strong> NVIDIA GTX 1060 6GB veya AMD Radeon R9 Fury</li>
+              <li><strong>Depolama:</strong> 70 GB SSD</li>
+            </ul>
+          </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <h2 class="baslik">Ücretsiz Oyunlar</h2>
+
+
+
+
+
+
+
+        <div class="free-cards-container">
+          <div class="free-game-card" data-price="Ücretsiz">
+            <div class="card-img">
+              <img src="görseller/asphalt legends.jpg" alt="Oyun Adı">
+              <span class="free-badge">Ücretsiz</span>
+            </div>
+            <div class="card-content">
+              <h3><b>Asphalt Legends UNITE</b></h3>
+              <p>Aston Martin Vulcan, Mitsubishi Lancer Evolution ve Jaguar XE SV Project 8 için üç özel çıkartma
+                edinin!</p>
+              <button class="free-claim-btn">Hemen Al</button>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+          <div class="free-game-card" data-price="Ücretsiz">
+            <div class="card-img">
+              <img src="görseller/fortnıte.jpg" alt="Oyun Adı">
+              <span class="free-badge">Ücretsiz</span>
+            </div>
+            <div class="card-content">
+              <h3><b>FORTNITE</b></h3>
+              <p>Fortnite'ta üret, oyna ve arkadaşlarınla birlikte savaş. Hem de ücretsiz! Battle Royale ve Sıfır
+                İnşa'da ayakta kal!</p>
+              <button class="free-claim-btn">Hemen Al</button>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+          <div class="free-game-card" data-price="Ücretsiz">
+            <div class="card-img">
+              <img src="görseller/GENSHİN.jpg" alt="Oyun Adı">
+              <span class="free-badge">Ücretsiz</span>
+            </div>
+            <div class="card-content">
+              <h3><b>Genshin Impact</b></h3>
+              <p>Kayıp kardeşini bulmak ve elementlerin tanrıları olan The Seven'dan cevap almak için bir yolculuğa çık.
+              </p>
+              <button class="free-claim-btn">Hemen Al</button>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+          <div class="free-game-card" data-price="Ücretsiz">
+            <div class="card-img">
+              <img src="görseller/rocket.jpg" alt="Oyun Adı">
+              <span class="free-badge">Ücretsiz</span>
+            </div>
+            <div class="card-content">
+              <h3><b>Rocket League</b></h3>
+              <p>Rocket League, anlaşılması kolay kontrollere ve akıcı, fizik tabanlı rekabete sahip, yüksek güçlü bir
+                karışımıdır.</p>
+              <button class="free-claim-btn">Hemen Al</button>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <div class="free-game-card" data-price="Ücretsiz">
+            <div class="card-img">
+              <img src="görseller/pubg.jpg" alt="Oyun Adı">
+              <span class="free-badge">Ücretsiz</span>
+            </div>
+            <div class="card-content">
+              <h3><b>PUBG: BATTLEGROUNDS</b></h3>
+              <p>PUBG: BATTLEGROUNDS'u ücretsiz oynayın. Stratejik konumlara iniş yapın, silahları ve malzemeleri
+                yağmalayın!</p>
+              <button class="free-claim-btn">Hemen Al</button>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+          <div class="free-game-card" data-price="Ücretsiz">
+            <div class="card-img">
+              <img src="görseller/honkai2.jpg" alt="Oyun Adı">
+              <span class="free-badge">Ücretsiz</span>
+            </div>
+            <div class="card-content">
+              <h3><b>Honkai: Star Rail</b></h3>
+              <p>Honkai: Star Rail, yeni bir HoYoverse uzay fantezi RPG'sidir. Astral Express'e binin ve macera ve
+                heyecan dolu!</p>
+              <button class="free-claim-btn">Hemen Al</button>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <div class="free-game-card" data-price="Ücretsiz">
+            <div class="card-img">
+              <img src="görseller/valorant.jpg" alt="Oyun Adı">
+              <span class="free-badge">Ücretsiz</span>
+            </div>
+            <div class="card-content">
+              <h3><b>Valorant</b></h3>
+              <p>VALORANT, küresel sahnede kendine yer edinmiş, karakter tabanlı bir 5'e 5 taktiksel nişancılık
+                oyunudur.</p>
+              <button class="free-claim-btn">Hemen Al</button>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <div class="free-game-card" data-price="Ücretsiz">
+            <div class="card-img">
+              <img src="görseller/fullgays.jpg" alt="Oyun Adı">
+              <span class="free-badge">Ücretsiz</span>
+            </div>
+            <div class="card-content">
+              <h3><b>Fall Guys</b></h3>
+              <p>Fall Guys, platformlar arası oynanabilen ücretsiz bir devasa çok oyunculu party eğlenceli royale oyunu.
+              </p>
+              <button class="free-claim-btn">Hemen Al</button>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <div class="free-game-card" data-price="Ücretsiz">
+            <div class="card-img">
+              <img src="görseller/sims.jpg" alt="Oyun Adı">
+              <span class="free-badge">Ücretsiz</span>
+            </div>
+            <div class="card-content">
+              <h3><b>The Sims™ 4</b></h3>
+              <p>The Sims 4 ücretsiz indirilebilir! Hayal gücünüzü kullanarak sizi ifade eden o eşsiz Sims dünyasını ve
+                hayatınızı yaratın.</p>
+              <button class="free-claim-btn">Hemen Al</button>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <div class="free-game-card" data-price="Ücretsiz">
+            <div class="card-img">
+              <img src="görseller/lol.jpg" alt="Oyun Adı">
+              <span class="free-badge">Ücretsiz</span>
+            </div>
+            <div class="card-content">
+              <h3><b>League of Legends</b></h3>
+              <p>Efsane ol. Şampiyonunu bul, yeteneklerinde ustalaş ve rakiplerini destansı 5'e 5 savaşlarda alt edip
+                rakibin üssünü yok et.</p>
+              <button class="free-claim-btn">Hemen Al</button>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <div class="free-game-card" data-price="Ücretsiz">
+            <div class="card-img">
+              <img src="görseller/apex.jpg" alt="Oyun Adı">
+              <span class="free-badge">Ücretsiz</span>
+            </div>
+            <div class="card-content">
+              <h3><b>Apex Legends™</b></h3>
+              <p>Güçlü yeteneklere sahip efsanevi karakterlerin Frontier’ın sınırlarında şöhrete ve ganimetlere ulaşmak
+                için savaş!</p>
+              <button class="free-claim-btn">Hemen Al</button>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <div class="free-game-card" data-price="Ücretsiz">
+            <div class="card-img">
+              <img src="görseller/albion.jpg" alt="Oyun Adı">
+              <span class="free-badge">Ücretsiz</span>
+            </div>
+            <div class="card-content">
+              <h3><b>Albion Online</b></h3>
+              <p>Albion Online kendi hikayeni yazdığın bir sandbox MMORPG'dir. Uçsuz bucaksız açık dünyayı keşfet,
+                servetini büyüt!</p>
+              <button class="free-claim-btn">Hemen Al</button>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <div class="free-game-card" data-price="Ücretsiz">
+            <div class="card-img">
+              <img src="görseller/metal.jpg" alt="Oyun Adı">
+              <span class="free-badge">Ücretsiz</span>
+            </div>
+            <div class="card-content">
+              <h3><b>Metalstorm</b></h3>
+              <p>Metalstorm'a hoş geldiniz, en üst düzey takım tabanlı çok oyunculu hava muharebesi deneyimi! Gerçekten
+                ücretsiz bir oyun.</p>
+              <button class="free-claim-btn">Hemen Al</button>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+          <div class="free-game-card" data-price="Ücretsiz">
+            <div class="card-img">
+              <img src="görseller/poppy.jpg" alt="Oyun Adı">
+              <span class="free-badge">Ücretsiz</span>
+            </div>
+            <div class="card-content">
+              <h3><b>Poppy Playtime</b></h3>
+              <p>Bu korku/bulmaca macerasında hayatta kalmalısınız. Terk edilmiş oyuncak fabrikasında sizi bekleyen
+                intikamcı oyuncaklar.</p>
+              <button class="free-claim-btn">Hemen Al</button>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <div class="free-game-card" data-price="Ücretsiz">
+            <div class="card-img">
+              <img src="görseller/callof.jpg" alt="Oyun Adı">
+              <span class="free-badge">Ücretsiz</span>
+            </div>
+            <div class="card-content">
+              <h3><b>Call of Dragons</b></h3>
+              <p>RoK Ekibinden Bir MMO Fantezi Fetih Oyunu! Savaşmak için devleri ele geçirin. Müttefiklerinizle
+                kahraman becerilerinizi kullanın.</p>
+              <button class="free-claim-btn">Hemen Al</button>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <div class="free-game-card" data-price="Ücretsiz">
+            <div class="card-img">
+              <img src="görseller/raid.jpg" alt="Oyun Adı">
+              <span class="free-badge">Ücretsiz</span>
+            </div>
+            <div class="card-content">
+              <h3><b>Raid: Shadow Legends</b></h3>
+              <p>Raid: Shadow Legends'da düşmanları alt etmek için 400'den fazla Şampiyon topla. Bu karanlık, fantastik
+                koleksiyon topla!</p>
+              <button class="free-claim-btn">Hemen Al</button>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <div class="free-game-card" data-price="Ücretsiz">
+            <div class="card-img">
+              <img src="görseller/zoo2.jpg" alt="Oyun Adı">
+              <span class="free-badge">Ücretsiz</span>
+            </div>
+            <div class="card-content">
+              <h3><b>Zoo 2: Animal Park</b></h3>
+              <p>Büyüleyici hayvan oyununda, bir hayvanat bahçesi yönetmeni rolüne bürünüyorsunuz. Vahşi kaplanlara ve
+                kurnaz kurtlara bakın.</p>
+              <button class="free-claim-btn">Hemen Al</button>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <div class="free-game-card" data-price="Ücretsiz">
+            <div class="card-img">
+              <img src="görseller/farlight.jpg" alt="Oyun Adı">
+              <span class="free-badge">Ücretsiz</span>
+            </div>
+            <div class="card-content">
+              <h3><b>Farlight 84</b></h3>
+              <p>Battle Royale'de evcil hayvan yakalamak mı? Aynen öyle! Farlight 84'te eşsiz yetenekleri olan
+                kahramanların yerine geç.</p>
+              <button class="free-claim-btn">Hemen Al</button>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <div class="free-game-card" data-price="Ücretsiz">
+            <div class="card-img">
+              <img src="görseller/lords.jpg" alt="Oyun Adı">
+              <span class="free-badge">Ücretsiz</span>
+            </div>
+            <div class="card-content">
+              <h3><b>Lords Mobile</b></h3>
+              <p>Bu destansı gerçek zamanlı strateji oyununda milyonlarca oyuncuya karşı savaş! Kendi İmparatorluğunu
+                kur.</p>
+              <button class="free-claim-btn">Hemen Al</button>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <div class="free-game-card" data-price="Ücretsiz">
+            <div class="card-img">
+              <img src="görseller/walking.jpg" alt="Oyun Adı">
+              <span class="free-badge">Ücretsiz</span>
+            </div>
+            <div class="card-content">
+              <h3><b>The Walking Dead: No Man's Land</b></h3>
+              <p>Zombi kıyameti yaklaştığında The Walking Dead'de hangi tür bir hayatta kalan olursun?</p>
+              <button class="free-claim-btn">Hemen Al</button>
+            </div>
+          </div>
+        </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="trailer-section">
+          <div class="video-player">
+            <video id="mainVideo" src="videolar/Grand Theft Auto V The Official Trailer.mp4" muted autoplay></video>
+          </div>
+          <div class="video-sidebar" id="videoSidebar">
+            <div class="video-thumb active" data-src="videos/trailer1.mp4">
+              <img src="görseller/godofwar.jpg" alt="Game 1">
+              <video class="hover-preview" src="videos/trailer1.mp4" muted loop></video>
+            </div>
+            <div class="video-thumb" data-src="videos/trailer2.mp4">
+              <img src="görseller/fs255.jpg" alt="Game 2">
+              <video class="hover-preview" src="videos/trailer2.mp4" muted loop></video>
+            </div>
+            <div class="video-thumb" data-src="videos/trailer3.mp4">
+              <img src="görseller/rdr22.jpg" alt="Game 3">
+              <video class="hover-preview" src="videos/trailer3.mp4" muted loop></video>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+      </center>
+    </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="container">
+
+      <footer class="bg-black text-gray-400 p-8">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-8">
+
+          <!-- Logo ve Sosyal Medya -->
+          <div>
+            <img src="görseller/EA-Games.png" alt="Logo" class="h-10 mb-4">
+            <div class="flex space-x-4 mt-4">
+              <a href="#" class="hover:text-white">Facebook</a>
+              <a href="#" class="hover:text-white">Twitter</a>
+              <a href="https://www.youtube.com/@EpicGamesStore" class="hover:text-white">YouTube</a>
+            </div>
+          </div>
+
+          <!-- Menü 1 -->
+          <div>
+            <h4 class="text-white font-semibold mb-2">EA Games</h4>
+            <ul class="space-y-1">
+              <li><a href="#" class="hover:text-white">Mağaza</a></li>
+              <li><a href="#" class="hover:text-white">Hakkımızda</a></li>
+              <li><a href="#" class="hover:text-white">Kariyer</a></li>
+            </ul>
+          </div>
+
+          <!-- Menü 2 -->
+          <div>
+            <h4 class="text-white font-semibold mb-2">Destek</h4>
+            <ul class="space-y-1">
+              <li><a href="#" class="hover:text-white">Yardım Merkezi</a></li>
+              <li><a href="#" class="hover:text-white">İletişim</a></li>
+              <li><a href="#" class="hover:text-white">Güvenlik</a></li>
+            </ul>
+          </div>
+
+          <!-- Menü 3 -->
+          <div>
+            <h4 class="text-white font-semibold mb-2">Yasal</h4>
+            <ul class="space-y-1">
+              <li><a href="#" class="hover:text-white">Hizmet Şartları</a></li>
+              <li><a href="#" class="hover:text-white">Gizlilik Politikası</a></li>
+              <li><a href="#" class="hover:text-white">Lisans Sözleşmesi</a></li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="mt-8 border-t border-gray-700 pt-4 text-sm text-gray-500 text-center">
+          © 2025 EA Games, Inc. Tüm hakları saklıdır.
+        </div>
+      </footer>
+
+    </div>
+
+
+
+    <script src="script.js"></script>
+  </body>
+
+</html>
