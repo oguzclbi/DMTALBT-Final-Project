@@ -997,7 +997,7 @@ function playVideoAtIndex(index) {
 setInterval(() => {
     currentVideoIndex = (currentVideoIndex + 1) % videoList.length;
     playVideoAtIndex(currentVideoIndex);
-}, 15000);
+}, 60000);
 
 videoList.forEach((thumb, index) => {
     thumb.addEventListener("click", () => {
