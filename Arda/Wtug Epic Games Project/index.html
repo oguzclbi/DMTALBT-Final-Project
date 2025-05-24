@@ -116,39 +116,39 @@
         <div class="slider-container">
           <div class="slides">
 
-            <div class="slide">
+            <div class="slide" data-price="₺1049">
               <img src="görseller/gtaV.jpg" alt="Cyber War">
               <div class="slide-content">
                 <h2>Grand Theft Auto V</h2>
                 <p>₺1.049</p>
-                <a href="#" class="btn">Sepete ekle</a>
+                <button class="btn">Sepete ekle</button>
               </div>
             </div>
 
-            <div class="slide">
+            <div class="slide" data-price="₺2299">
               <img src="görseller/reddeadII.jpg" alt="Battle Siege">
               <div class="slide-content">
                 <h2>Red Dead Redemption 2</h2>
                 <p>₺2.299</p>
-                <a href="#" class="btn">Sepete ekle</a>
+                <button class="btn">Sepete ekle</button>
               </div>
             </div>
 
-            <div class="slide">
+            <div class="slide" data-price="₺387">
               <img src="görseller/ets2.jpg" alt="Space Raiders">
               <div class="slide-content">
                 <h2>Euro Truck Simulator 2</h2>
                 <p>₺387</p>
-                <a href="#" class="btn">Sepete ekle</a>
+                <button class="btn">Sepete ekle</button>
               </div>
             </div>
 
-            <div class="slide">
+            <div class="slide" data-price="₺340">
               <img src="görseller/fs22.jpg" alt="Shadow Quest">
               <div class="slide-content">
                 <h2>Farming Simulator 22</h2>
                 <p>₺340</p>
-                <a href="#" class="btn">Sepete ekle</a>
+                <button class="btn">Sepete ekle</button>
               </div>
             </div>
 
@@ -1318,25 +1318,33 @@
 
 
 
-        <div class="trailer-section">
-          <div class="video-player">
-            <video id="mainVideo" src="videolar/Grand Theft Auto V The Official Trailer.mp4" muted autoplay></video>
-          </div>
-          <div class="video-sidebar" id="videoSidebar">
-            <div class="video-thumb active" data-src="videos/trailer1.mp4">
-              <img src="görseller/godofwar.jpg" alt="Game 1">
-              <video class="hover-preview" src="videos/trailer1.mp4" muted loop></video>
+        <div class="video-player-container">
+          <video id="mainVideo" width="640" height="360" muted autoplay></video>
+          <div class="thumbnails">
+            <!-- Her thumbnail bir div ve data-video ile video dosyasını tutuyor -->
+            <div class="thumb active" data-video="videolar/God of War Ragnarök - Baba ve Oğul Sinematik Fragman  PS5 & PS4.mp4">
+              <img src="görseller/godofwar.jpg" alt="FM24" />
             </div>
-            <div class="video-thumb" data-src="videos/trailer2.mp4">
-              <img src="görseller/fs255.jpg" alt="Game 2">
-              <video class="hover-preview" src="videos/trailer2.mp4" muted loop></video>
+            <div class="thumb" data-video="videolar/Marvel’s Spider-Man Remastered – Launch Trailer I PC Games.mp4">
+              <img src="görseller/spiderman2.jpg" alt="Oyun 2" />
             </div>
-            <div class="video-thumb" data-src="videos/trailer3.mp4">
-              <img src="görseller/rdr22.jpg" alt="Game 3">
-              <video class="hover-preview" src="videos/trailer3.mp4" muted loop></video>
+            <div class="thumb" data-video="videolar/RoadCraft - Launch Trailer  PS5 Games.mp4">
+              <img src="görseller/roadcraft-vdouz.jpg" alt="Oyun 3" />
+            </div>
+             <div class="thumb" data-video="videolar/The Last of Us Part 1 Türkçe Dublajlı Çıkış Fragmanı.mp4">
+              <img src="görseller/lastofus1.jpg" alt="Oyun 4" />
+            </div>
+             <div class="thumb" data-video="videolar/Farming Simulator 25 Cinematic Trailer (Announcement).mp4">
+              <img src="görseller/fs255.jpg" alt="Oyun 5" />
             </div>
           </div>
         </div>
+
+
+
+
+
+
 
 
 
