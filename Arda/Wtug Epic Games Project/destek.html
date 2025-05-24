@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Destek | EA Games</title>
+    <link rel="stylesheet" href="görseller/EA-Games.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        .navbar {
+            display: flex;
+            background-color: #1c1c1c;
+            padding: 15px 30px;
+            align-items: center;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 30px;
+            font-size: 18px;
+        }
+
+        .navbar a.logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #00aaff;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 36px;
+            border-bottom: 2px solid #00aaff;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        .faq,
+        .contact,
+        .live-support {
+            background-color: #1f1f1f;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .faq h2,
+        .contact h2,
+        .live-support h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #00aaff;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+        }
+
+        .faq-item strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #2c2c2c;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        form button {
+            background-color: #00aaff;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #008ecc;
+        }
+
+        .live-support p {
+            margin: 15px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px 0;
+            border-top: 1px solid #333;
+            font-size: 14px;
+            color: #aaa;
+        }
+
+        .faq-item i {
+            color: #00aaff;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <a href="index.html" class="logo">Oyun Dükkanı</a>
+        <a href="hakkimizda.html">Hakkımızda</a>
+        <a href="haberler.html">Haberler</a>
+        <a href="destek.html">Destek</a>
+    </div>
+
+    <div class="container">
+        <h1>Destek</h1>
+
+        <div class="faq">
+            <h2>Sıkça Sorulan Sorular</h2>
+            <div class="faq-item">
+                <strong><i class="fas fa-question-circle"></i>Oyunlarımı nasıl indirebilirim?</strong>
+                Satın aldığınız oyunlar profil sayfanızdaki "Kütüphanem" bölümünde yer alır. İlgili oyunun yanındaki
+                "İndir" butonuna tıklayın.
+            </div>
+            <div class="faq-item">
+                <strong><i class="fas fa-question-circle"></i>Ödeme işlemleri güvenli mi?</strong>
+                Tüm ödeme işlemleri SSL sertifikaları ve güvenli ödeme altyapısı ile korunmaktadır.
+            </div>
+            <div class="faq-item">
+                <strong><i class="fas fa-question-circle"></i>Ücretsiz oyun kampanyaları ne zaman?</strong>
+                Ücretsiz oyun kampanyalarını ana sayfamızdan ve haberler bölümümüzden takip edebilirsiniz.
+            </div>
+        </div>
+
+        <div class="contact">
+            <h2>Destek Talep Formu</h2>
+            <form>
+                <input type="text" placeholder="Ad Soyad" required>
+                <input type="email" placeholder="E-posta Adresi" required>
+                <textarea rows="5" placeholder="Sorununuzu buraya yazın..." required></textarea>
+                <button type="submit">Gönder</button>
+            </form>
+        </div>
+
+        <div class="live-support">
+            <h2>Canlı Destek</h2>
+            <p><i class="fas fa-headset"></i> Canlı destek ekibimiz hafta içi 09:00-18:00 saatleri arasında hizmet
+                vermektedir.</p>
+            <p><a href="#" style="color:#00aaff;text-decoration:underline;">Canlı destek başlat</a></p>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 EA Games | Tüm Hakları Saklıdır.</p>
+        </div>
+    </div>
+
+</body>
+
+</html>

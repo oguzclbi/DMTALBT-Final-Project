@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hakkımızda | EA Games</title>
+    <link rel="stylesheet" href="görseller/EA-Games.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        .navbar {
+            display: flex;
+            background-color: #1c1c1c;
+            padding: 15px 30px;
+            align-items: center;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 30px;
+            font-size: 18px;
+        }
+
+        .navbar a.logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #00aaff;
+        }
+
+        .about-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .about-container h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #00aaff;
+            display: inline-block;
+        }
+
+        .about-container p {
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .banner-img {
+            width: 100%;
+            margin-bottom: 30px;
+            border-radius: 10px;
+        }
+
+        .features {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .feature-card {
+            flex: 1 1 250px;
+            background-color: #1f1f1f;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: scale(1.05);
+        }
+
+        .feature-card i {
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: #00aaff;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+            font-size: 22px;
+        }
+
+        .team-section h2,
+        .vision-section h2,
+        .faq-section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #00aaff;
+            display: inline-block;
+        }
+
+        .vision-section,
+        .faq-section {
+            margin-bottom: 40px;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+        }
+
+        .faq-item h4 {
+            color: #00aaff;
+            margin-bottom: 8px;
+        }
+
+        .stats {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            flex: 1 1 200px;
+            background-color: #1f1f1f;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-card h3 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .stat-card p {
+            font-size: 16px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px 0;
+            border-top: 1px solid #333;
+            font-size: 14px;
+            color: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <a href="index.html" class="logo">Oyun Dükkanı</a>
+        <a href="hakkimizda.html">Hakkımızda</a>
+        <a href="haberler.html">Haberler</a>
+        <a href="destek.html">Destek</a>
+    </div>
+
+    <div class="about-container">
+
+        <h1>Hakkımızda</h1>
+        <p>
+            Oyun Dükkanı olarak oyunculara en güncel, en kaliteli ve en eğlenceli oyunları sunmayı hedefleyen bir
+            dijital oyun mağazasıyız. Kuruluşumuzdan bu yana kullanıcı dostu arayüzümüz ve geniş oyun kütüphanemiz ile
+            binlerce oyuncunun tercihi olduk.
+        </p>
+
+        <div class="features">
+            <div class="feature-card">
+                <i class="fas fa-gamepad"></i>
+                <h3>Binlerce Oyun</h3>
+                <p>Her kategoriden yüzlerce popüler ve indie oyun seni bekliyor!</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-star"></i>
+                <h3>Özel Kampanyalar</h3>
+                <p>Yıl boyunca onlarca kampanya ve ücretsiz oyun fırsatını kaçırma.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-user-shield"></i>
+                <h3>Güvenli Alışveriş</h3>
+                <p>Tüm ödeme işlemleriniz yüksek güvenlik protokolleriyle korunur.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-headset"></i>
+                <h3>7/24 Destek</h3>
+                <p>Her zaman sana yardım etmeye hazır bir destek ekibimiz var.</p>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <h3>500K+</h3>
+                <p>Aktif Kullanıcı</p>
+            </div>
+            <div class="stat-card">
+                <h3>2000+</h3>
+                <p>Oyun Arşivi</p>
+            </div>
+            <div class="stat-card">
+                <h3>150+</h3>
+                <p>Aylık Kampanya</p>
+            </div>
+        </div>
+
+        <div class="vision-section">
+            <h2>Vizyonumuz & Misyonumuz</h2>
+            <p>
+                Oyunculara sadece bir mağaza değil, aynı zamanda bir topluluk ortamı sunmayı hedefliyoruz.
+                Gelişen teknolojiyle birlikte oyun dünyasının nabzını tutuyor ve oyunculara en kaliteli deneyimi sunmak
+                için çalışıyoruz.
+            </p>
+        </div>
+
+        <div class="team-section">
+            <h2>Ekibimiz</h2>
+            <p>
+                Genç ve dinamik ekibimiz; yazılım geliştiriciler, grafik tasarımcılar ve oyun tutkunu içerik
+                yöneticilerinden oluşuyor.
+                Biz, oyun dünyasının enerjisini dijital mağazamıza yansıtıyoruz.
+            </p>
+        </div>
+
+        <div class="faq-section">
+            <h2>Sıkça Sorulan Sorular</h2>
+            <div class="faq-item">
+                <h4>Oyunlarımı nasıl indirebilirim?</h4>
+                <p>Satın aldığınız oyunlar profilinizdeki 'Oyunlarım' sekmesinden indirilebilir.</p>
+            </div>
+            <div class="faq-item">
+                <h4>İade politikası nasıl işliyor?</h4>
+                <p>Satın aldığınız oyunu 14 gün içinde ve 2 saatten az oynama süresiyle iade edebilirsiniz.</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 EA Games | Tüm Hakları Saklıdır.</p>
+        </div>
+
+    </div>
+</body>
+
+</html>
