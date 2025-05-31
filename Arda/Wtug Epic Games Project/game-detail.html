@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>EA Games | Oyun Detayları</title>
+    <link rel="stylesheet" href="görseller/EA-Games.png">
+    <style>
+        /* Reset */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background-color: #0b0b0f;
+            /* Daha koyu bir siyah */
+            color: #e1e1e6;
+            /* Hafif gri-beyaz */
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1150px;
+            margin: 120px auto 60px auto;
+            padding: 0 25px;
+        }
+
+        .top-section {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            align-items: flex-start;
+        }
+
+        .video-section {
+            flex: 1 1 60%;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 0 25px rgba(0, 163, 255, 0.3);
+            background-color: #111;
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .image-section {
+            flex: 1 1 35%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .game-image {
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 0 20px rgba(0, 163, 255, 0.3);
+            margin-bottom: 25px;
+            overflow: hidden;
+            background-color: #111;
+        }
+
+        .game-image img {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+            border-radius: 16px;
+        }
+
+        .info-section {
+            width: 100%;
+            text-align: center;
+        }
+
+        .game-title {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 8px;
+            color: #00a3ff;
+            word-break: break-word;
+        }
+
+        .game-price {
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 25px;
+            text-shadow: 0 0 10px black;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 45px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            background-color: #00a3ff;
+            border: none;
+            color: white;
+            padding: 16px 48px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 163, 255, 0.4);
+            white-space: nowrap;
+        }
+
+        button:hover {
+            background-color: #007acc;
+            box-shadow: 0 12px 30px rgba(0, 122, 204, 0.6);
+        }
+
+        .description-section {
+            margin-top: 60px;
+            background-color: #121217;
+            padding: 35px 45px;
+            border-radius: 20px;
+            font-size: 1.2rem;
+            line-height: 1.7;
+            color: #d4d4d8;
+            box-shadow: 0 0 25px rgba(0, 163, 255, 0.15);
+        }
+
+        .sysreq-section {
+            margin-top: 45px;
+            background-color: #181821;
+            padding: 35px 45px;
+            border-radius: 20px;
+            font-size: 1rem;
+            color: #a0a0a8;
+            box-shadow: 0 0 15px rgba(0, 163, 255, 0.12);
+        }
+
+        .sysreq-section h3 {
+            margin-top: 0;
+            font-weight: 800;
+            margin-bottom: 18px;
+            color: #00a3ff;
+        }
+
+        /* Sağ üstteki sabit butonlar küçültüldü ve kompakt yapıldı */
+        .btn-group-fixed {
+            display: flex;
+            gap: 12px;
+            margin-top: 30px;
+            justify-content: flex-end;
+            margin-right: 50px;
+            z-index: 1000px;
+        }
+
+        .btn-group-fixed button {
+            padding: 8px 18px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 6px;
+            box-shadow: 0 4px 8px rgba(0, 163, 255, 0.3);
+            white-space: nowrap;
+        }
+
+        .btn-group-fixed button:hover {
+            background-color: #007acc;
+            box-shadow: 0 6px 14px rgba(0, 122, 204, 0.4);
+        }
+
+        /* Sayfa altı footer kısmı */
+        .footer {
+            text-align: center;
+            padding: 20px 0;
+            color: #555;
+            font-size: 0.9rem;
+            background-color: #0b0b0f;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            user-select: none;
+            margin-top: 50px;
+        }
+
+        #toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 163, 255, 0.9);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1rem;
+            box-shadow: 0 4px 15px rgba(0, 163, 255, 0.6);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            z-index: 9999;
+            min-width: 250px;
+            max-width: 90vw;
+        }
+
+        #toast.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+
+        @media (max-width: 920px) {
+            .top-section {
+                flex-direction: column;
+            }
+
+            .video-section,
+            .image-section {
+                flex: 1 1 100%;
+            }
+
+            .game-title {
+                font-size: 3rem;
+            }
+
+            .game-price {
+                font-size: 2rem;
+                margin-bottom: 20px;
+            }
+
+            .buttons {
+                flex-direction: column;
+                gap: 15px;
+                margin-bottom: 35px;
+            }
+
+            button {
+                width: 100%;
+                padding: 14px 0;
+                font-size: 1.15rem;
+            }
+
+            .description-section,
+            .sysreq-section {
+                padding: 25px 30px;
+                font-size: 1rem;
+            }
+
+            .btn-group-fixed {
+                flex-direction: column;
+                top: 15px;
+                right: 15px;
+            }
+
+            .btn-group-fixed button {
+                padding: 10px 16px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Sabit butonlar grubu -->
+    <div class="btn-group-fixed">
+        <button onclick="window.location.href='index.html'">Ana Sayfaya Dön</button>
+        <button onclick="window.location.href='istek-listesi.html'">İstek Listesine Git</button>
+        <button onclick="window.location.href='sepet.html'">Sepete Git</button>
+    </div>
+
+    <div class="container">
+        <div class="top-section">
+            <div class="video-section">
+                <video id="gameVideo" autoplay muted controls playsinline>
+                    <source src="" type="video/mp4" />
+                    Tarayıcınız video etiketini desteklemiyor.
+                </video>
+            </div>
+
+            <div class="image-section">
+                <div class="game-image">
+                    <img id="gameImage" src="" alt="Oyun Kapak Görseli" />
+                </div>
+                <div class="info-section">
+                    <h1 class="game-title" id="gameTitle">Oyun Başlığı</h1>
+                    <div class="game-price" id="gamePrice">₺0</div>
+                    <div class="buttons">
+                        <button id="btnWishlist">İstek Listesine Ekle</button>
+                        <button id="btnCart">Sepete Ekle</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="description-section">
+            <h2>Oyun Açıklaması</h2>
+            <p id="gameDescription">Buraya oyun açıklaması gelecek...</p>
+        </div>
+
+        <div class="sysreq-section">
+            <h3>Sistem Gereksinimleri</h3>
+            <ul id="gameSysReq"></ul>
+        </div>
+    </div>
+
+    <footer class="footer">
+        © 2025 EA Games. Tüm hakları saklıdır.
+    </footer>
+    <!-- Toast mesaj alanı -->
+    <div id="toast">
+        <img id="toastImage" src="" alt=""
+            style="display:none; width: 40px; height: 40px; margin-right: 10px; border-radius: 5px; object-fit: cover;">
+        <span id="toastText"></span>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        const games = {
+            "oyun1": {
+                title: "Commandos: Origins",
+                price: "₺1.800",
+                image: "görseller/commands.jpg",
+                video: "videolar/Commandos Origins - Official Launch Trailer.mp4",
+                description: `UYARI! Tüm dünyanın kaderini şekillendirecek bir görev için seçildin. 
+        Commandos: Origins'te efsanevi seçkin savaşçı sen ol. Özel görevler seni bekliyor.`,
+                sysreq: [
+                    "Minimum: Windows 10, 8GB RAM, GTX 970",
+                    "Önerilen: Windows 10, 16GB RAM, RTX 2060"
+                ]
+            },
+            "oyun2": {
+                title: "Dead by Dylight",
+                price: "₺180",
+                image: "görseller/deadbydaylight.jpg",
+                video: "videolar/Dead by Daylight  Steady Pulse  Official Trailer.mp4",
+                description: `Dead By Daylight, Behavior Interactive tarafından geliştirilen asimetrik bir hayatta kalma-korku video
+        ve macera tarzında bir oyunudur.`,
+                sysreq: [
+                    "Minimum: Windows 10, 8GB RAM, GTX 970",
+                    "Önerilen: Windows 10, 16GB RAM, RTX 2060"
+                ]
+            },
+            "oyun3": {
+                title: "Deadzone:Rogue",
+                price: "₺359",
+                image: "görseller/deadzone2.jpg",
+                video: "videolar/Deadzone Rogue - Official Early Access Launch Trailer.mp4",
+                description: `Deadzone: Rogue, derin uzayda geçen bir roguelite birinci şahıs nişancı oyunudur . Her benzersiz koşuda
+        düşman ordularını öldürün, ekipmanınızı özelleştirin.`,
+                sysreq: [
+                    "Minimum: Windows 10, 8GB RAM, GTX 970",
+                    "Önerilen: Windows 10, 16GB RAM, RTX 2060"
+                ]
+            },
+            "oyun4": {
+                title: "Patron",
+                price: "₺6.60",
+                image: "görseller/patron.jpg",
+                video: "videolar/Patron - Official Release Trailer.mp4",
+                description: `Patron, benzersiz bir sosyal dinamik sistemine sahip bir hayatta kalma şehir kurucusudur. Kaynak
+        toplayın, köy inşa edin, kendi krallığınızı kurun ve üretin.`,
+                sysreq: [
+                    "Minimum: Windows 10, 8GB RAM, GTX 970",
+                    "Önerilen: Windows 10, 16GB RAM, RTX 2060"
+                ]
+            },
+            "oyun5": {
+                title: "Clair Obscur:Expedition 33",
+                price: "₺820",
+                image: "görseller/Clair-Obscur-Expedition-33.jpg",
+                video: "videolar/Clair Obscur Expedition 33 - Official Launch Trailer.mp4",
+                description: `Clair Obscur: Expedition 33, Sandfall Interactive tarafından geliştirilip
+        Kepler Interactive tarafından 2025'te yayınlanan bir rol yapma video oyunudur.`,
+                sysreq: [
+                    "Minimum: Windows 10, 8GB RAM, GTX 970",
+                    "Önerilen: Windows 10, 16GB RAM, RTX 2060"
+                ]
+            }
+        };
+
+        const params = new URLSearchParams(window.location.search);
+        const gameId = params.get('id');
+
+        function showToast(message, imageSrc = null) {
+            const toast = document.getElementById("toast");
+            document.getElementById("toastText").innerHTML = message;
+            if (imageSrc) {
+                document.getElementById("toastImage").src = imageSrc;
+                document.getElementById("toastImage").style.display = "block";
+            } else {
+                document.getElementById("toastImage").style.display = "none";
+            }
+            toast.classList.add("show");
+            setTimeout(() => toast.classList.remove("show"), 3000);
+        }
+
+        function updatePage(game) {
+            document.getElementById("gameTitle").innerText = game.title;
+            document.getElementById("gamePrice").innerText = game.price;
+            document.getElementById("gameImage").src = game.image;
+            const videoElem = document.getElementById("gameVideo");
+            videoElem.querySelector('source').src = game.video;
+            videoElem.load();
+            document.getElementById("gameDescription").innerText = game.description;
+            const sysReqList = document.getElementById("gameSysReq");
+            sysReqList.innerHTML = "";
+            game.sysreq.forEach(req => {
+                const li = document.createElement("li");
+                li.innerText = req;
+                sysReqList.appendChild(li);
+            });
+        }
+
+        document.getElementById("btnWishlist").addEventListener("click", () => {
+            const game = games[gameId];
+            if (!game) return showToast("Oyun bilgisi bulunamadı!");
+
+            // Güncel istek listesini localStorage’dan al
+            let currentWishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+            if (currentWishlist.includes(gameId)) {
+                return showToast(`${game.title} zaten istek listesinde.`, game.image);
+            }
+
+            currentWishlist.push(gameId);
+            localStorage.setItem("wishlist", JSON.stringify(currentWishlist));
+            showToast(`${game.title} istek listesine eklendi.`, game.image);
+        });
+
+        document.getElementById("btnCart").addEventListener("click", () => {
+            const game = games[gameId];
+            if (!game) return showToast("Oyun bilgisi bulunamadı!");
+
+            // Güncel sepet listesini localStorage’dan al
+            let currentCart = JSON.parse(localStorage.getItem("cart")) || [];
+
+            if (currentCart.includes(gameId)) {
+                return showToast(`${game.title} zaten sepette.`, game.image);
+            }
+
+            currentCart.push(gameId);
+            localStorage.setItem("cart", JSON.stringify(currentCart));
+            showToast(`${game.title} sepete eklendi.`, game.image);
+        });
+
+        if (!gameId || !games[gameId]) {
+            alert("Geçersiz oyun ID'si veya oyun bulunamadı.");
+            window.location.href = "index.html";
+        } else {
+            updatePage(games[gameId]);
+        }
+        function showToast(message, imageSrc = null) {
+            const toast = document.getElementById("toast");
+            document.getElementById("toastText").innerHTML = message;
+            if (imageSrc) {
+                document.getElementById("toastImage").src = imageSrc;
+                document.getElementById("toastImage").style.display = "block";
+            } else {
+                document.getElementById("toastImage").style.display = "none";
+            }
+            toast.classList.add("show");
+            setTimeout(() => toast.classList.remove("show"), 3000);
+        }
+
+
+    </script>
+
+</body>
+
+</html>

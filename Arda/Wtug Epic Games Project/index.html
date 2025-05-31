@@ -46,8 +46,8 @@
       <!-- Menü -->
       <nav class="hidden md:flex items-left space-x-6">
         <a href="hakkimizda.html" class="hover:text-gray-400 transition">Hakkımızda</a>
-        <a href="#" class="hover:text-gray-400 transition">Haberler</a>
-        <a href="#" class="hover:text-gray-400 transition">Destek</a>
+        <a href="haberler.html" class="hover:text-gray-400 transition">Haberler</a>
+        <a href="destek.html" class="hover:text-gray-400 transition">Destek</a>
       </nav>
 
       <!-- Butonlar -->
@@ -185,40 +185,11 @@
 
         <div class="cards-container">
 
-          <div class="game-card" data-price="₺1800" data-category="Strateji">
-            <div class="card-img">
-              <img src="görseller/commands.jpg" alt="Oyun Adı">
-              <div class="discount-badge">%20 İNDİRİM!</div>
-              <div class="countdown" id="countdown1"></div>
-              <!-- Kalp Butonu -->
-              <button class="wishlistBtn"
-                onclick="toggleWishlist(this, 'Commandos: Origins', '₺1.800', 'görseller/commands.jpg')">
-                <i class="fas fa-plus"></i> <!-- Artı simgesi -->
-              </button>
-            </div>
-            <div class="card-content">
-              <h3>Commandos:Origins</h3>
-              <p>UYARI! Tüm dünyanın kaderini şekillendirecek bir görev için seçildin.
-                Commandos: Origins'te efsanevi seçkin savaşçı.
-                sen seçilmiş kişisin. Özel görevler için seçildin</p>
 
 
-              <div class="price-area">
-                <span class="old-price">₺1.800</span>
-                <span class="discounted-price">₺1.440</span>
-              </div>
-
-
-              <!-- Puanlama Sistemi -->
-              <div class="rating" data-game="Commandos: Origins">
-                <span class="star" data-value="1">&#9733;</span>
-                <span class="star" data-value="2">&#9733;</span>
-                <span class="star" data-value="3">&#9733;</span>
-                <span class="star" data-value="4">&#9733;</span>
-                <span class="star" data-value="5">&#9733;</span>
-              </div>
-              <button class="buy-btn">Sepete ekle</button>
-            </div>
+          <div class="game-card" onclick="window.location.href='game-detail.html?id=oyun1'">
+            <img src="görseller/commands.jpg" alt="Oyun 1">
+              <div class="card-price">₺1.800</div>
           </div>
 
 
@@ -227,40 +198,9 @@
 
 
 
-
-
-
-
-
-          <div class="game-card" data-price="₺180" data-category="Aksiyon">
-            <div class="card-img">
-              <img src="görseller/deadbydaylight.jpg" alt="Oyun Adı">
-              <div class="discount-badge">%20 İNDİRİM!</div>
-              <div class="countdown" id="countdown2"></div>
-              <!-- Kalp Butonu -->
-              <button class="wishlistBtn"
-                onclick="toggleWishlist(this, 'Dead by Dylight', '₺180', 'görseller/deadbydaylight.jpg')">
-                <i class="fas fa-plus"></i> <!-- Artı simgesi -->
-              </button>
-            </div>
-            <div class="card-content">
-              <h3>Dead by Dylight</h3>
-              <p>Dead By Daylight, Behavior Interactive tarafından geliştirilen asimetrik bir hayatta kalma-korku video
-                ve macera tarzında bir
-                oyunudur.</p>
-              <div class="price-area">
-                <span class="old-price">₺180</span>
-                <span class="discounted-price">₺144</span>
-              </div>
-              <div class="rating" data-game="Dead by Dylight">
-                <span class="star" data-value="1">&#9733;</span>
-                <span class="star" data-value="2">&#9733;</span>
-                <span class="star" data-value="3">&#9733;</span>
-                <span class="star" data-value="4">&#9733;</span>
-                <span class="star" data-value="5">&#9733;</span>
-              </div>
-              <button class="buy-btn">Sepete ekle</button>
-            </div>
+          <div class="game-card" onclick="window.location.href='game-detail.html?id=oyun2'">
+            <img src="görseller/deadbydaylight.jpg" alt="Oyun 2">
+            <div class="card-price">₺180</div>
           </div>
 
 
@@ -268,34 +208,29 @@
 
 
 
+          <div class="game-card" onclick="window.location.href='game-detail.html?id=oyun3'">
+            <img src="görseller/deadzone2.jpg" alt="Oyun 3">
+            <div class="card-price">₺359</div>
+          </div>
 
 
 
 
 
-          <div class="game-card" data-price="₺359" data-category="Aksiyon">
-            <div class="card-img">
-              <img src="görseller/deadzone2.jpg" alt="Oyun Adı">
-              <!-- Kalp Butonu -->
-              <button class="wishlistBtn"
-                onclick="toggleWishlist(this, 'Deadzone:Rogue', '₺359', 'görseller/deadzone2.jpg')">
-                <i class="fas fa-plus"></i> <!-- Artı simgesi -->
-              </button>
-            </div>
-            <div class="card-content">
-              <h3>Deadzone:Rogue</h3>
-              <p>Deadzone: Rogue, derin uzayda geçen bir roguelite birinci şahıs nişancı oyunudur . Her benzersiz koşuda
-                düşman ordularını öldürün, ekipmanınızı özelleştirin.</p>
-              <h3 class="price">₺359</h3>
-              <div class="rating" data-game="Deadzone:Rogue">
-                <span class="star" data-value="1">&#9733;</span>
-                <span class="star" data-value="2">&#9733;</span>
-                <span class="star" data-value="3">&#9733;</span>
-                <span class="star" data-value="4">&#9733;</span>
-                <span class="star" data-value="5">&#9733;</span>
-              </div>
-              <button class="buy-btn">Sepete ekle</button>
-            </div>
+
+          <div class="game-card" onclick="window.location.href='game-detail.html?id=oyun4'">
+            <img src="görseller/patron.jpg" alt="Oyun 4">
+            <div class="card-price">₺6.60</div>
+          </div>
+
+
+
+
+
+
+          <div class="game-card" onclick="window.location.href='game-detail.html?id=oyun5'">
+            <img src="görseller/Clair-Obscur-Expedition-33.jpg" alt="Oyun 5">
+            <div class="card-price">₺820</div>
           </div>
 
 
@@ -313,73 +248,8 @@
 
 
 
-          <div class="game-card" data-price="₺6,60" data-category="Aksiyon">
-            <div class="card-img">
-              <img src="görseller/patron.jpg" alt="Oyun Adı">
-              <!-- Kalp Butonu -->
-              <button class="wishlistBtn" onclick="toggleWishlist(this, 'Patron', '₺6,60', 'görseller/patron.jpg')">
-                <i class="fas fa-plus"></i> <!-- Artı simgesi -->
-              </button>
-            </div>
-            <div class="card-content">
-              <h3>Patron</h3>
-              <p>Patron, benzersiz bir sosyal dinamik sistemine sahip bir hayatta kalma şehir kurucusudur. Kaynak
-                toplayın, köy inşa edin, kendi krallığınızı kurun ve üretin.</p>
-              <h3 class="price">₺6,60</h3>
-              <div class="rating" data-game="Patron">
-                <span class="star" data-value="1">&#9733;</span>
-                <span class="star" data-value="2">&#9733;</span>
-                <span class="star" data-value="3">&#9733;</span>
-                <span class="star" data-value="4">&#9733;</span>
-                <span class="star" data-value="5">&#9733;</span>
-              </div>
-              <button class="buy-btn">Sepete ekle</button>
-            </div>
-          </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-          <div class="game-card" data-price="₺820" data-category="Aksiyon">
-            <div class="card-img">
-              <img src="görseller/Clair-Obscur-Expedition-33.jpg" alt="Oyun Adı">
-              <div class="discount-badge">%20 İNDİRİM!</div>
-              <div class="countdown" id="countdown3"></div>
-              <!-- Kalp Butonu -->
-              <button class="wishlistBtn"
-                onclick="toggleWishlist(this, 'Clair Obscur:Expedition 33', '₺820', 'görseller/Clair-Obscur-Expedition-33.jpg')">
-                <i class="fas fa-plus"></i> <!-- Artı simgesi -->
-              </button>
-            </div>
-            <div class="card-content">
-              <h3>Clair Obscur:Expedition 33</h3>
-              <p>Clair Obscur: Expedition 33, Sandfall Interactive tarafından geliştirilip
-                Kepler Interactive tarafından 2025'te yayınlanan bir rol yapma video oyunudur.</p>
-              <div class="price-area">
-                <span class="old-price">₺820</span>
-                <span class="discounted-price">₺656</span>
-              </div>
-              <div class="rating" data-game="Clair Obscur:Expedition 33">
-                <span class="star" data-value="1">&#9733;</span>
-                <span class="star" data-value="2">&#9733;</span>
-                <span class="star" data-value="3">&#9733;</span>
-                <span class="star" data-value="4">&#9733;</span>
-                <span class="star" data-value="5">&#9733;</span>
-              </div>
-              <button class="buy-btn">Sepete ekle</button>
-            </div>
-          </div>
 
 
           <div class="game-card" data-price="₺1268" data-category="Aksiyon">
@@ -1322,7 +1192,8 @@
           <video id="mainVideo" width="640" height="360" muted autoplay></video>
           <div class="thumbnails">
             <!-- Her thumbnail bir div ve data-video ile video dosyasını tutuyor -->
-            <div class="thumb active" data-video="videolar/God of War Ragnarök - Baba ve Oğul Sinematik Fragman  PS5 & PS4.mp4">
+            <div class="thumb active"
+              data-video="videolar/God of War Ragnarök - Baba ve Oğul Sinematik Fragman  PS5 & PS4.mp4">
               <img src="görseller/godofwar.jpg" alt="FM24" />
             </div>
             <div class="thumb" data-video="videolar/Marvel’s Spider-Man Remastered – Launch Trailer I PC Games.mp4">
@@ -1331,10 +1202,10 @@
             <div class="thumb" data-video="videolar/RoadCraft - Launch Trailer  PS5 Games.mp4">
               <img src="görseller/roadcraft-vdouz.jpg" alt="Oyun 3" />
             </div>
-             <div class="thumb" data-video="videolar/The Last of Us Part 1 Türkçe Dublajlı Çıkış Fragmanı.mp4">
+            <div class="thumb" data-video="videolar/The Last of Us Part 1 Türkçe Dublajlı Çıkış Fragmanı.mp4">
               <img src="görseller/lastofus1.jpg" alt="Oyun 4" />
             </div>
-             <div class="thumb" data-video="videolar/Farming Simulator 25 Cinematic Trailer (Announcement).mp4">
+            <div class="thumb" data-video="videolar/Farming Simulator 25 Cinematic Trailer (Announcement).mp4">
               <img src="görseller/fs255.jpg" alt="Oyun 5" />
             </div>
           </div>

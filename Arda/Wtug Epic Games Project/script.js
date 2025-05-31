@@ -983,56 +983,131 @@ function searchGames() {
 
 
 
-    
+
 document.addEventListener("DOMContentLoaded", () => {
-  const mainVideo = document.getElementById("mainVideo");
-        const thumbs = document.querySelectorAll(".thumb");
-        let currentIndex = 0;
+    const mainVideo = document.getElementById("mainVideo");
+    const thumbs = document.querySelectorAll(".thumb");
+    let currentIndex = 0;
 
-  const videos = Array.from(thumbs).map(t => t.getAttribute("data-video"));
+    const videos = Array.from(thumbs).map(t => t.getAttribute("data-video"));
 
-        function loadVideo(index) {
-            currentIndex = index;
+    function loadVideo(index) {
+        currentIndex = index;
         mainVideo.src = videos[index];
-    mainVideo.play().catch(() => { });
+        mainVideo.play().catch(() => { });
         updateActiveThumb();
-  }
-
-        function updateActiveThumb() {
-            thumbs.forEach((t, i) => {
-                if (i === currentIndex) t.classList.add("active");
-                else t.classList.remove("active");
-            });
-  }
-
-  thumbs.forEach((thumb, i) => {
-            thumb.addEventListener("click", () => {
-                loadVideo(i);
-            });
-  });
-
-  mainVideo.addEventListener("ended", () => {
-            let nextIndex = (currentIndex + 1) % videos.length;
-        loadVideo(nextIndex);
-  });
-
-  mainVideo.addEventListener("mouseenter", () => {
-            mainVideo.muted = false;
-  });
-  mainVideo.addEventListener("mouseleave", () => {
-            mainVideo.muted = true;
-  });
-
-  // Video tıklanınca tam ekran yap
-  mainVideo.addEventListener("click", () => {
-    if (mainVideo.requestFullscreen) {
-            mainVideo.requestFullscreen();
-    } else if (mainVideo.webkitRequestFullscreen) { /* Safari */
-            mainVideo.webkitRequestFullscreen();
-    } else if (mainVideo.msRequestFullscreen) { /* IE11 */
-            mainVideo.msRequestFullscreen();
     }
-  });
 
-        loadVideo(0);
+    function updateActiveThumb() {
+        thumbs.forEach((t, i) => {
+            if (i === currentIndex) t.classList.add("active");
+            else t.classList.remove("active");
+        });
+    }
+
+    thumbs.forEach((thumb, i) => {
+        thumb.addEventListener("click", () => {
+            loadVideo(i);
+        });
+    });
+
+    mainVideo.addEventListener("ended", () => {
+        let nextIndex = (currentIndex + 1) % videos.length;
+        loadVideo(nextIndex);
+    });
+
+    mainVideo.addEventListener("mouseenter", () => {
+        mainVideo.muted = false;
+    });
+    mainVideo.addEventListener("mouseleave", () => {
+        mainVideo.muted = true;
+    });
+
+    // Video tıklanınca tam ekran yap
+    mainVideo.addEventListener("click", () => {
+        if (mainVideo.requestFullscreen) {
+            mainVideo.requestFullscreen();
+        } else if (mainVideo.webkitRequestFullscreen) { /* Safari */
+            mainVideo.webkitRequestFullscreen();
+        } else if (mainVideo.msRequestFullscreen) { /* IE11 */
+            mainVideo.msRequestFullscreen();
+        }
+    });
+
+    loadVideo(0);
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
