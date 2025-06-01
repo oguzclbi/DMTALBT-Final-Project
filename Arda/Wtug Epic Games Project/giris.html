@@ -1,79 +1,74 @@
 <!DOCTYPE html>
 <html lang="tr">
-    <link rel="stylesheet" href="görseller/EA-Games.png">
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="görseller/EA-Games.png">
-    <title>Giriş Yap</title>
+    <title>EA Games | Giriş Yap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             padding: 0;
             height: 100vh;
-            background: #121212;
+            background: linear-gradient(135deg, #121212, #1f1f1f);
+            font-family: "Segoe UI", sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: "Segoe UI", sans-serif;
             color: #fff;
         }
 
         .login-container {
-            text-align: center;
-            background: #1e1e1e;
+            background: #242424;
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
             width: 100%;
-            max-width: 300px;
-            /* Formun genişliği */
+            max-width: 350px;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.7);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            position: relative;
+        }
+
+        .login-container img {
+            width: 100px;
+            margin-bottom: 15px;
+        }
+
+        .login-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0, 120, 242, 0.7);
         }
 
         h2 {
             margin-bottom: 20px;
+            font-size: 22px;
         }
 
-        input {
-            padding: 12px 20px;
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
             margin: 10px 0;
+            background: #333;
             border: none;
             border-radius: 5px;
-            background: #2a2a2a;
             color: #fff;
-            width: 85%;
         }
 
         input::placeholder {
             color: #aaa;
         }
 
-        button {
-            padding: 12px 25px;
-            margin: 10px 0;
-            border: none;
-            border-radius: 5px;
-            background: #0078f2;
-            color: #fff;
-            cursor: pointer;
-            transition: background 0.3s;
-            width: 100%;
-        }
-
-        button:hover {
-            background: #005ac1;
-        }
-
-        #logoutBtn {
-            background: #e63946;
-        }
-
-        #logoutBtn:hover {
-            background: #c5303c;
-        }
-
         .checkbox-container {
-            margin-left: -550px;
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
             font-size: 14px;
         }
 
@@ -81,153 +76,166 @@
             margin-right: 8px;
         }
 
-        .error {
-            color: #e63946;
-            font-size: 12px;
-            margin-top: 10px;
+        .show-password {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            margin: 10px 0;
         }
 
-        label {
-            margin-left: -350px;
+        .show-password input {
+            margin-right: 8px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background: #0078f2;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #005ac1;
+        }
+
+        .logout-btn {
+            background: #e63946;
+        }
+
+        .logout-btn:hover {
+            background: #c5303c;
+        }
+
+        .error-message {
+            color: #e63946;
+            font-size: 13px;
+            margin-top: 8px;
+            display: none;
+        }
+
+        .back-btn {
+            background: #444;
+        }
+
+        .back-btn:hover {
+            background: #333;
         }
     </style>
-
-
-
 </head>
-
 
 <body>
 
-
-
     <div class="login-container">
+        <img src="görseller/EA-Games.png" alt="EA Games Logo">
+
         <h2>Giriş Yap</h2>
 
         <input type="text" id="userNameInput" placeholder="Kullanıcı Adı">
         <input type="email" id="emailInput" placeholder="E-Posta">
         <input type="password" id="passwordInput" placeholder="Şifre">
 
+        <div class="show-password">
+            <input type="checkbox" id="showPassword">
+            <label for="showPassword">Şifreyi Göster</label>
+        </div>
+
         <div class="checkbox-container">
-            <input type="checkbox" id="rememberMe"><label for="rememberMe">Beni Hatırla</label>
+            <input type="checkbox" id="rememberMe">
+            <label for="rememberMe">Beni Hatırla</label>
         </div>
 
         <button id="loginBtn">Giriş Yap</button>
-        <button id="logoutBtn" style="display: none;" onclick="logout()">Çıkış Yap</button>
+        <button id="logoutBtn" class="logout-btn" style="display: none;">Çıkış Yap</button>
 
-        <p class="error" id="errorMessage" style="display: none;"></p><br>
+        <p class="error-message" id="errorMessage"></p>
+
         <button class="back-btn" onclick="window.location.href='index.html'">Anasayfaya Dön</button>
     </div>
 
-
-
-
-
-
-
     <script>
-
-
-
-        window.addEventListener("DOMContentLoaded", () => {
-            const storedName = localStorage.getItem("userName");
-            const loginBtn = document.getElementById("loginBtn");
-            const logoutBtn = document.getElementById("logoutBtn");
+        document.addEventListener("DOMContentLoaded", () => {
             const userNameInput = document.getElementById("userNameInput");
             const emailInput = document.getElementById("emailInput");
             const passwordInput = document.getElementById("passwordInput");
+            const showPassword = document.getElementById("showPassword");
             const rememberMe = document.getElementById("rememberMe");
+            const loginBtn = document.getElementById("loginBtn");
+            const logoutBtn = document.getElementById("logoutBtn");
             const errorMessage = document.getElementById("errorMessage");
 
-            // Eğer giriş yapılmışsa, giriş butonunu değiştir ve çıkış butonunu göster
+            const storedName = localStorage.getItem("userName");
+
             if (storedName) {
                 userNameInput.style.display = "none";
                 emailInput.style.display = "none";
                 passwordInput.style.display = "none";
                 loginBtn.disabled = true;
                 loginBtn.textContent = "Zaten Giriş Yapıldı";
-                logoutBtn.style.display = "inline-block";
-                document.querySelector(".checkbox-container").style.display = "none"; // Beni Hatırla kısmını gizle
+                logoutBtn.style.display = "block";
+                document.querySelector(".checkbox-container").style.display = "none";
+                document.querySelector(".show-password").style.display = "none";
             }
 
-            // Giriş yap butonuna tıklandığında
+            showPassword.addEventListener("change", () => {
+                passwordInput.type = showPassword.checked ? "text" : "password";
+            });
+
             loginBtn.addEventListener("click", () => {
                 const name = userNameInput.value.trim();
                 const email = emailInput.value.trim();
                 const password = passwordInput.value.trim();
 
-                // Hataları temizle
                 errorMessage.style.display = "none";
 
-                // Alanların boş olup olmadığını kontrol et
                 if (!name || !email || !password) {
                     showError("Lütfen tüm alanları doldurun.");
                     return;
                 }
 
-                // Email kontrolü
                 if (!validateEmail(email)) {
                     showError("Geçerli bir e-posta adresi girin.");
                     return;
                 }
 
-                // Şifre kontrolü
                 if (password.length < 6) {
-                    showError("Şifre en az 6 karakter olmalıdır.");
+                    showError("Şifre en az 6 karakter olmalı.");
                     return;
                 }
 
-                // Eğer Beni Hatırla işaretlendi ise, kullanıcı bilgilerini kaydet
                 if (rememberMe.checked) {
                     localStorage.setItem("userName", name);
                     localStorage.setItem("userEmail", email);
+                } else {
+                    sessionStorage.setItem("userName", name);
                 }
 
-                // Giriş başarılı olduğunda
-                localStorage.setItem("userName", name);
-                window.location.href = "index.html"; // Anasayfaya yönlendir
+                alert("Giriş başarılı! Anasayfaya yönlendiriliyorsunuz.");
+                window.location.href = "index.html";
             });
 
-            // Çıkış yap butonuna tıklandığında
             logoutBtn.addEventListener("click", () => {
                 localStorage.removeItem("userName");
                 localStorage.removeItem("userEmail");
+                sessionStorage.removeItem("userName");
                 location.reload();
             });
 
-            // Email geçerliliği kontrol fonksiyonu
             function validateEmail(email) {
-                const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-                return emailPattern.test(email);
+                const pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                return pattern.test(email);
             }
 
-            // Hata mesajı gösterme fonksiyonu
             function showError(message) {
                 errorMessage.textContent = message;
                 errorMessage.style.display = "block";
             }
         });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
     </script>
 
 </body>
