@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>EA Games | Oyun Detayları</title>
+    <link rel="icon" type="image/png" href="görseller/EA-Games.png">
+    <style>
+        /* Reset */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background-color: #0b0b0f;
+            /* Daha koyu bir siyah */
+            color: #e1e1e6;
+            /* Hafif gri-beyaz */
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1150px;
+            margin: 120px auto 60px auto;
+            padding: 0 25px;
+        }
+
+        .top-section {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            align-items: flex-start;
+        }
+
+        .video-section {
+            flex: 1 1 60%;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 0 25px rgba(0, 163, 255, 0.3);
+            background-color: #111;
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .image-section {
+            flex: 1 1 35%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .game-image {
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 0 20px rgba(0, 163, 255, 0.3);
+            margin-bottom: 25px;
+            overflow: hidden;
+            background-color: #111;
+        }
+
+        .game-image img {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+            border-radius: 16px;
+        }
+
+        .info-section {
+            width: 100%;
+            text-align: center;
+        }
+
+        .game-title {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 8px;
+            color: #00a3ff;
+            word-break: break-word;
+        }
+
+        .game-price {
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 25px;
+            text-shadow: 0 0 10px black;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 45px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            background-color: #00a3ff;
+            border: none;
+            color: white;
+            padding: 16px 48px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 163, 255, 0.4);
+            white-space: nowrap;
+        }
+
+        button:hover {
+            background-color: #007acc;
+            box-shadow: 0 12px 30px rgba(0, 122, 204, 0.6);
+        }
+
+        .description-section {
+            margin-top: 60px;
+            background-color: #121217;
+            padding: 35px 45px;
+            border-radius: 20px;
+            font-size: 1.2rem;
+            line-height: 1.7;
+            color: #d4d4d8;
+            box-shadow: 0 0 25px rgba(0, 163, 255, 0.15);
+        }
+
+        .sysreq-section {
+            margin-top: 45px;
+            background-color: #181821;
+            padding: 35px 45px;
+            border-radius: 20px;
+            font-size: 1rem;
+            color: #a0a0a8;
+            box-shadow: 0 0 15px rgba(0, 163, 255, 0.12);
+        }
+
+        .sysreq-section h3 {
+            margin-top: 0;
+            font-weight: 800;
+            margin-bottom: 18px;
+            color: #00a3ff;
+        }
+
+        /* Sağ üstteki sabit butonlar küçültüldü ve kompakt yapıldı */
+        .btn-group-fixed {
+            display: flex;
+            gap: 12px;
+            margin-top: 30px;
+            justify-content: flex-end;
+            margin-right: 50px;
+            z-index: 1000px;
+        }
+
+        .btn-group-fixed button {
+            padding: 8px 18px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 6px;
+            box-shadow: 0 4px 8px rgba(0, 163, 255, 0.3);
+            white-space: nowrap;
+        }
+
+        .btn-group-fixed button:hover {
+            background-color: #007acc;
+            box-shadow: 0 6px 14px rgba(0, 122, 204, 0.4);
+        }
+
+        /* Sayfa altı footer kısmı */
+        .footer {
+            text-align: center;
+            padding: 20px 0;
+            color: #555;
+            font-size: 0.9rem;
+            background-color: #0b0b0f;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            user-select: none;
+            margin-top: 50px;
+        }
+
+        #toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 163, 255, 0.9);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1rem;
+            box-shadow: 0 4px 15px rgba(0, 163, 255, 0.6);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            z-index: 9999;
+            min-width: 250px;
+            max-width: 90vw;
+        }
+
+        #toast.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+
+        @media (max-width: 920px) {
+            .top-section {
+                flex-direction: column;
+            }
+
+            .video-section,
+            .image-section {
+                flex: 1 1 100%;
+            }
+
+            .game-title {
+                font-size: 3rem;
+            }
+
+            .game-price {
+                font-size: 2rem;
+                margin-bottom: 20px;
+            }
+
+            .buttons {
+                flex-direction: column;
+                gap: 15px;
+                margin-bottom: 35px;
+            }
+
+            button {
+                width: 100%;
+                padding: 14px 0;
+                font-size: 1.15rem;
+            }
+
+            .description-section,
+            .sysreq-section {
+                padding: 25px 30px;
+                font-size: 1rem;
+            }
+
+            .btn-group-fixed {
+                flex-direction: column;
+                top: 15px;
+                right: 15px;
+            }
+
+            .btn-group-fixed button {
+                padding: 10px 16px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Sabit butonlar grubu -->
+    <div class="btn-group-fixed">
+        <button onclick="window.location.href='index.html'">Ana Sayfaya Dön</button>
+        <button onclick="window.location.href='istek-listesi.html'">İstek Listesine Git</button>
+        <button onclick="window.location.href='sepet.html'">Sepete Git</button>
+    </div>
+
+    <div class="container">
+        <div class="top-section">
+            <div class="video-section">
+                <video id="gameVideo" autoplay muted controls playsinline>
+                    <source src="" type="video/mp4" />
+                    Tarayıcınız video etiketini desteklemiyor.
+                </video>
+            </div>
+
+            <div class="image-section">
+                <div class="game-image">
+                    <img id="gameImage" src="" alt="Oyun Kapak Görseli" />
+                </div>
+                <div class="info-section">
+                    <h1 class="game-title" id="gameTitle">Oyun Başlığı</h1>
+                    <div class="game-price" id="gamePrice">₺0</div>
+                    <div class="buttons">
+                        <button id="btnWishlist">İstek Listesine Ekle</button>
+                        <button id="btnCart">Sepete Ekle</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="description-section">
+            <h2>Oyun Açıklaması</h2>
+            <p id="gameDescription">Buraya oyun açıklaması gelecek...</p>
+        </div>
+
+        <div class="sysreq-section">
+            <h3>Sistem Gereksinimleri</h3>
+            <ul id="gameSysReq"></ul>
+        </div>
+    </div>
+
+    <footer class="footer">
+        © 2025 EA Games. Tüm hakları saklıdır.
+    </footer>
+    <!-- Toast mesaj alanı -->
+    <div id="toast">
+        <img id="toastImage" src="" alt=""
+            style="display:none; width: 40px; height: 40px; margin-right: 10px; border-radius: 5px; object-fit: cover;">
+        <span id="toastText"></span>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        const games = {
+            "oyun1": {
+                title: "Commandos: Origins",
+                price: "₺1.800",
+                image: "görseller/commands.jpg",
+                video: "videolar/Commandos Origins - Official Launch Trailer.mp4",
+                description: `UYARI! Tüm dünyanın kaderini şekillendirecek bir görev için seçildin. Commandos: Origins'te efsanevi seçkin İkinci Dünya Savaşı kuvvetinin başlangıcına tanıklık et. Commandos serisinin uzun zamandır beklenen devam oyunu seni gerçek zamanlı taktik türünün başlangıcına geri götürüyor.`,
+                sysreq: [
+                    "İşletim Sistemi: Windows 10(64 - bit)",
+                    "İşlemci: i7 - 9700 / Ryzen 7 3700X",
+                    "Ram: 16 GB RAM",
+                    "Ekran Kartı: GeForce RTX 3060 / Radeon RX 6600 XT",
+                    "Depolama: 30 GB kullanılabilir alan"
+                ]
+            },
+
+
+
+
+
+
+
+            "oyun2": {
+                title: "Dead by Dylight",
+                price: "₺180",
+                image: "görseller/deadbydaylight.jpg",
+                video: "videolar/Dead by Daylight  Steady Pulse  Official Trailer.mp4",
+                description: `Dead By Daylight, Behavior Interactive tarafından geliştirilen asimetrik bir hayatta kalma-korku video oyunudur. Dead By Daylight, Microsoft Windows için 14 Haziran 2016'da yayınlandı, Haziran 2017'de PlayStation 4 ve Xbox One'da yayınlandı.`,
+                sysreq: [
+                    "İşletim Sistemi: Windows 10 (64 Bit)",
+                    "İşlemci: AMD FX 8120, Intel Core i3-4170",
+                    "RAM: 8 GB Ekran Kartı: Nvidia GeForce GTX 460, AMD Radeon HD 6850",
+                    "Ekran Kartı: Nvidia GeForce GTX 460, AMD Radeon HD 6850",
+                    "Depolama: 50 GB kullanılabilir alan"
+                ]
+            },
+
+
+
+
+
+
+
+
+
+            "oyun3": {
+                title: "Deadzone:Rogue",
+                price: "₺359",
+                image: "görseller/deadzone2.jpg",
+                video: "videolar/Deadzone Rogue - Official Early Access Launch Trailer.mp4",
+                description: `Deadzone: Rogue, uzayda geçen bir roguelite FPS'dir. Yıkıcı silahlarla düşman ordularını patlatın. Güçlü geliştirmeler ve yükseltmelerle dövüş stilinizi belirleyin. Her ölümle, solo veya kooperatifte daha da güçlenin. Dövüşün. Ölün. Dirilin. Tekrarlayın.`,
+                sysreq: [
+                    "İşletim Sistemi: Windows 10 64 - bit",
+                    "İşlemci: Intel i7 - 11700 or AMD Ryzen 5 5600",
+                    "Ram: 12 GB RAM",
+                    "Ekran Kartı: NVIDIA RTX 2080 or Radeon RX6700",
+                    "Depolama: 10 GB kullanılabilir alan"
+                ]
+            },
+
+
+
+
+
+
+
+
+
+
+
+
+
+            "oyun4": {
+                title: "Patron",
+                price: "₺6.60",
+                image: "görseller/patron.jpg",
+                video: "videolar/Patron - Official Release Trailer.mp4",
+                description: `Patron hayatta kalma ve şehir kurma öğelerini benzersiz sosyal dinamiklerle birleştirmiş bir oyundur. Kaynakları toplayın ve üretin, yeni kurulmuş köyünüzü refaha ermiş bir şehir haline getirirken, karmaşık sosyal gerilimlerin üstesinden gelin.`,
+                sysreq: [
+                    "İşletim Sistemi: Windows® 10 (64-bit)",
+                    "İşlemci: Intel™ Core i7-3770 or AMD Ryzen™ 5 1600",
+                    "Ram: 8 GB RAM",
+                    "Ekran Kartı: GeForce GTX 1060 6 GB or AMD Radeon™ RX 590 6 GB",
+                    "Depolama: 10 GB kullanılabilir alan"
+                ]
+            },
+
+
+
+
+
+
+
+
+
+
+
+
+            "oyun5": {
+                title: "Clair Obscur:Expedition 33",
+                price: "₺820",
+                image: "görseller/Clair-Obscur-Expedition-33.jpg",
+                video: "videolar/Clair Obscur Expedition 33 - Official Launch Trailer.mp4",
+                description: `Bir daha ölümü çizmemesi için Ressam'ı yok etme görevlerinde Expedition 33 üyelerine liderlik et. Fransa'nın muazzam Belle Époque döneminden esinlenen dünyayı keşfet, gerçek zamanlı mekaniklere sahip bu sıra tabanlı RYO'da benzersiz düşmanlarla savaş.`,
+                sysreq: [
+                    "İşletim Sistemi: Windows 11",
+                    "İşlemci: Intel Core i7-12700K / AMD Ryzen 7 5800X",
+                    "Ram: 16 GB RAM",
+                    "Ekran Kartı: NVIDIA GeForce RTX 3060 Ti 8 GB / AMD Radeon RX 6800 XT 16 GB",
+                    "Depolama: 55 GB kullanılabilir alan"
+                ]
+            },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            "oyun6": {
+                title: "Escape from Tarkov: Arena",
+                price: "₺1.268",
+                image: "görseller/arena2.jpg",
+                video: "videolar/Escape from Tarkov ARENA announcement teaser.mp4",
+                description: `Tarkov'un gizli arenalarında, gizemli Üstatlar tarafından organize edilen ve Ev Sahibi tarafından yönetilen gladyatör dövüşlerinde kendinize meydan okuyun.Rekabetçi PVPVE birinci şahıs nişancı oyununu taktik takım modlarıyla oynayın.
+                EFT: Arena, Escape from Tarkov'un zorlu mekaniğini ve oturum maçlarının hızlı tempolu oynanışını mükemmel bir şekilde birleştiriyor.`,
+                sysreq: [
+                    "İşletim Sistemi: Windows 10, Windows 11 (64-bit versions)",
+                    "İşlemci: AMD Ryzen 3 1200 @ 3.1 GHz, Intel Core i5-4590 @ 3.3 GHz",
+                    "Ram: 8 GB RAM",
+                    "Ekran Kartı: AMD RX 560, NVIDIA GeForce GTX 1050",
+                    "Depolama: 40 GB kullanılabilir alan"
+                ]
+            },
+
+
+
+
+
+
+
+
+
+
+
+
+
+            "oyun7": {
+                title: "Destiny 2: Lightfall",
+                price: "₺35,90",
+                image: "görseller/destiny.jpg",
+                video: "videolar/Destiny 2 Lightfall - Launch Trailer.mp4",
+                description: `Destiny 2'nun dünyasına dalıp güneş sisteminin gizemlerini keşfet ve etkileyici bir FPS deneyimi edin. Güçlü elementsel becerileri aç ve Gardiyanının görünüşünü ve oynayış tarzını özelleştirmek için benzersiz teçhizatlar topla. Destiny 2'nin sinematik hikayesinin, zorlu iş birliği görevlerinin ve çeşitli PvP modlarının keyfini ister arkadaşlarınla ister tek başına çıkar. Hemen ücretsiz olarak indir ve yıldızlara kendi efsaneni yaz.`,
+                sysreq: [
+                    "İşletim Sistemi: Windows® 10 64-bit (latest Service Pack)",
+                    "İşlemci: Processor Intel® Core™ i5 2400 3.4 GHz or i5 7400 3.5 GHz / AMD Ryzen R5 1600X 3.6 GHz",
+                    "Ram: 8 GB RAM",
+                    "Ekran Kartı: NVIDIA® GeForce® GTX 970 4GB or GTX 1060 6GB / AMD R9 390 8GB Memory 8 GB RAM",
+                    "Depolama: 105 GB kullanılabilir alan"
+                ]
+            },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            "oyun8": {
+                title: "The Last of Us:PartII",
+                price: "₺1.000",
+                image: "görseller/lastof.jpg",
+                video: "videolar/The Last of Us Part II  Hikaye Fragmanı (Türkçe Dublaj)  PS4.mp4",
+                description: `300'den fazla Yılın Oyunu ödülünü kazanan oyunu PC'de deneyimleyin. Ellie ve Abby'nin hikayesini grafik geliştirmeleri, roguelike hayatta kalma deneyimi No Return gibi oyun modları ve daha fazlasıyla keşfedin.`,
+                sysreq: [
+                    "İşletim Sistemi: Windows 10/11 64-bit (version 1909 or higher)",
+                    "İşlemci: Intel Core i5-8600, AMD Ryzen 5 3600",
+                    "Ram: 16 GB RAM",
+                    "Ekran Kartı: NVIDIA GeForce RTX 3060, AMD Radeon RX 5700",
+                    "Depolama: 150 GB kullanılabilir alan"
+                ]
+            },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            "oyun9": {
+                title: "Farming Simulator 25",
+                price: "₺549",
+                image: "görseller/fs25.jpg",
+                video: "videolar/Farming Simulator 25 Cinematic Trailer (Announcement).mp4",
+                description: `Kuzey Amerika'nın dolambaçlı nehirleri ve tarihi tahıl ambarlarının arasında, Orta Avrupa'da göletlerle çevrili bir bölgede ya da Doğu Asya'nın neon ışıklarla aydınlatılmış liman şehrinin yakınlarındaki yemyeşil pirinç tarlalarında bir çiftlik kur. Ekin yetiştir; hayvanlara bak; ormancılığa atıl ve çiftlik mağazaları, üretim ve inşaat gibi iş girişimlerinin olduğu bir imparatorluğu yönet!`,
+                sysreq: [
+                    "İşletim Sistemi: Windows 10 64bit",
+                    "İşlemci: Intel Core i7-10700, AMD Ryzen 7 3800X",
+                    "Ram: 12 GB RAM",
+                    "Ekran Kartı: Nvidia GeForce RTX 2070, AMD Radeon RX 5700 XT, Intel Arc A750 graphics card",
+                    "Depolama: 45 GB kullanılabilir alan"
+                ]
+            },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            "oyun10": {
+                title: "Tank Head",
+                price: "₺499",
+                image: "görseller/tank.jpg",
+                video: "videolar/TankHead - Launch Trailer.mp4",
+                description: `Whitaker olarak, ıssız ECA'da drone kontrollü bir tankı kullanarak heyecan verici bir yolculuğa çıkın. Bu hızlı bilimkurgu dünyasında, gizemli Highpoint'e ulaşmaya çalışırken, acımasız düşmanlarla savaşın, değerli parçaları toplayın ve hayatta kalmak için savaşın.`,
+                sysreq: [
+                    "İşletim Sistemi: Windows 11",
+                    "İşlemci: Intel® Core™ i7-10700K / AMD Ryzen 5 5600X Six-Core",
+                    "Ram: 12 GB",
+                    "Ekran Kartı: NVIDIA GeForce RTX 3070 / Intel® Arc™ A770 / AMD Radeon RX 6700 XT",
+                    "Depolama: 35 GB Kullanılabilir alan"
+                ]
+            },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            "oyun11": {
+                title: "Slient Hill 2",
+                price: "₺1.132",
+                image: "görseller/slienthill2.jpg",
+                video: "videolar/SILENT HILL 2 - Launch trailer.mp4",
+                description: `SILENT HILL, ışın izleme gibi son teknoloji teknik iyileştirmeler sayesinde her zamankinden daha gerçekçi bir dünya ve tüy ürpertici bir atmosfer sunuyor. Üstelik üç boyutlu yeni ses düzenlemeleri eşliğinde kendini aksiyonun merkezinde hissedeceksin.`,
+                sysreq: [
+                    "İşletim Sistemi: Windows 10 x64",
+                    "İşlemci: Intel Core i7-8700K | AMD Ryzen 5 3600X",
+                    "Ram: 16 GB RAM",
+                    "Ekran Kartı: NVIDIA® GeForce® 2080RTX or AMD Radeon™ 6800XT",
+                    "Depolama: 50 GB kullanılabilir alan"
+                ]
+            },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            "oyun12": {
+                title: "Assassin's Creed Shadows",
+                price: "₺1.749",
+                image: "görseller/asssin2.jpg",
+                video: "videolar/Assassins Creed Shadows Launch Trailer.mp4",
+                description: `Feodal Japonya'da geçen epik bir aksiyon macera hikâyesini deneyimleyin! Kargaşa dolu bir devirde hayran olunası bir açık dünyayı keşfederken ölümcül bir şinobi suikastçısı ve güçlü, efsanevi bir samuray olun. Şinobi suikastçısı Naoe ve efsanevi samuray Yasuke olarak oynayarak sürükleyici hikâyelerini deneyimleyin ve birbirini tamamlayan oyun tarzlarında ustalaşın. Naoe'yle görünmemek için gizliliğe, düşmanlarınızı şaşırtmak için de çevikliğe başvurun. Yasuke'yle düşmanlarınıza ölümcül bir kesinlik ve güçle saldırın.`,
+                sysreq: [
+                    "İşletim Sistemi: Windows 10/11",
+                    "İşlemci: Intel® Core™ i5 11600k/AMD Ryzen™ 5 5600x",
+                    "Ram: 16 GB RAM",
+                    "Ekran Kartı: Nvidia® GeForce RTX™ 3060Ti 8GB/AMD Radeon™ RX 6700 XT 12GB/Intel® Arc™ B580 12GB (REBAR ON)",
+                    "Depolama: 115 GB kullanılabilir alan"
+                ]
+            },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            "oyun13": {
+                title: "CarX Drift Racing Online",
+                price: "₺115",
+                image: "görseller/carx2.jpg",
+                video: "videolar/New CarX Drift Racing Online trailer.mp4",
+                description: `CarX Drift Racing Online, her seviyedeki yarışçılar için gerçek bir drift sanal alanı olan benzersiz bir drift simülatörüdür! Gamepad'ler ve klavyeler için sürüş yardımı, hemen bir profesyonel gibi drift yapmanızı sağlar. Direksiyon simidi ayarları, CarX Motorsport ekibiyle (RDS GP'de düzenli bir yarışmacı) işbirliği içinde yapılan gerçekçi fizik modelimiz sayesinde aracınızı en üst düzeyde daldırma deneyimiyle deneyimlemenizi sağlayacaktır. CarX Drift Racing Online, driftin gerçek dünyasına dalmanız için bir şans. Arkadaşlarınızla bir araya gelin, arabanızı ayarlayın ve biraz lastik yakın!`,
+                sysreq: [
+                    "İşletim Sistemi: Windows 8, 10",
+                    "İşlemci: Intel® Core™ i3-530 @ 2,93 GHz / AMD Phenom™ II X4 810 @ 2,60 GHz",
+                    "Ram: 8 GB RAM",
+                    "Ekran Kartı: Nvidia Geforce 1050GTX 4 GB",
+                    "Depolama: 6 GB kullanılabilir alan"
+                ]
+            },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            "oyun14": {
+                title: "EA SPORTS FC™ 25 Standart Sürüm",
+                price: "₺2.599",
+                image: "görseller/fc25.jpg",
+                video: "videolar/EA SPORTS FC 25  Official Reveal Trailer.mp4",
+                description: `Karşınızda Kulüp Üyeliği; EA SPORTS FC™ 25’te sadakatin bir sonraki aşaması. 27 Eylül 2024’ten önce EA SPORTS FC™ 24 ve 1 Kasım 2024’ten* önce EA SPORTS FC™ 25 oynayan oyunseverlere açık. FC 25 Kulüp Üyeleri yıl boyunca statülerini temsil eden arma ve forma ile tüm favori oyun modlarında ödüller dahil çeşitli özel avantajları elde edecek. Bir kez daha tüm Kurucular, Kuruculara özel kozmetik ögelerini açabilecek.`,
+                sysreq: [
+                    "İşletim Sistemi: Windows 10 - 64-Bit (Latest Update)",
+                    "İşlemci: AMD Ryzen 7 2700X or Intel Core i7 6700",
+                    "Ram: 12 GB RAM",
+                    "Ekran Kartı: AMD RX 5600 XT or Nvidia GTX 1660",
+                    "Depolama: 100 GB kullanılabilir alan"
+                ]
+            },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            "oyun15": {
+                title: "Read Dead Redemption",
+                price: "₺875",
+                image: "görseller/readdead.jpg",
+                video: "videolar/Red Dead Redemption Official Launch Trailer.mp4",
+                description: `Bu ürün, Red Dead Redemption ve Undead Nightmare'ın PC için dijital sürümlerini içerir. Game of the Year Edition’dan gelen bonus içerikler de dahil olmak üzere her iki oyunun tek oyunculu tam deneyimlerini sunar. Red Dead Redemption’da çok oyunculu içerik bulunmaz. Eski bir kanun kaçağı olan John Marston'ın, meşhur Van der Linde çetesinin son kalan üyelerinin peşine düştüğü bu macerayı, Red Dead Redemption 2'nin öncülü olan ve büyük beğeni toplayan oyunun PC’deki ilk sürümünde deneyimleyin.`,
+                sysreq: [
+                    "İşletim Sistemi: Windows 10 64-Bit",
+                    "İşlemci: Intel® Core™ i5-8500 / AMD Ryzen 5 3500X",
+                    "Ram: 8 GB RAM",
+                    "Ekran Kartı: NVIDIA RTX 2070 / AMD RX 5700 XT",
+                    "Depolama: 12 GB kullanılabilir alan"
+                ]
+            }
+        };
+
+
+
+
+
+
+
+
+
+        const params = new URLSearchParams(window.location.search);
+        const gameId = params.get('id');
+
+        function showToast(message, imageSrc = null) {
+            const toast = document.getElementById("toast");
+            document.getElementById("toastText").innerHTML = message;
+            if (imageSrc) {
+                document.getElementById("toastImage").src = imageSrc;
+                document.getElementById("toastImage").style.display = "block";
+            } else {
+                document.getElementById("toastImage").style.display = "none";
+            }
+            toast.classList.add("show");
+            setTimeout(() => toast.classList.remove("show"), 3000);
+        }
+
+        function updatePage(game) {
+            document.getElementById("gameTitle").innerText = game.title;
+            document.getElementById("gamePrice").innerText = game.price;
+            document.getElementById("gameImage").src = game.image;
+            const videoElem = document.getElementById("gameVideo");
+            videoElem.querySelector('source').src = game.video;
+            videoElem.load();
+            document.getElementById("gameDescription").innerText = game.description;
+            const sysReqList = document.getElementById("gameSysReq");
+            sysReqList.innerHTML = "";
+            game.sysreq.forEach(req => {
+                const li = document.createElement("li");
+                li.innerText = req;
+                sysReqList.appendChild(li);
+            });
+        }
+
+        document.getElementById("btnWishlist").addEventListener("click", () => {
+            const game = games[gameId];
+            if (!game) return showToast("Oyun bilgisi bulunamadı!");
+
+            // Güncel istek listesini localStorage’dan al
+            let currentWishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+            if (currentWishlist.includes(gameId)) {
+                return showToast(`${game.title} zaten istek listesinde.`, game.image);
+            }
+
+            currentWishlist.push(gameId);
+            localStorage.setItem("wishlist", JSON.stringify(currentWishlist));
+            showToast(`${game.title} istek listesine eklendi.`, game.image);
+        });
+
+        document.getElementById("btnCart").addEventListener("click", () => {
+            const game = games[gameId];
+            if (!game) return showToast("Oyun bilgisi bulunamadı!");
+
+            // Güncel sepet listesini localStorage’dan al
+            let currentCart = JSON.parse(localStorage.getItem("cart")) || [];
+
+            if (currentCart.includes(gameId)) {
+                return showToast(`${game.title} zaten sepette.`, game.image);
+            }
+
+            currentCart.push(gameId);
+            localStorage.setItem("cart", JSON.stringify(currentCart));
+            showToast(`${game.title} sepete eklendi.`, game.image);
+        });
+
+        if (!gameId || !games[gameId]) {
+            alert("Geçersiz oyun ID'si veya oyun bulunamadı.");
+            window.location.href = "index.html";
+        } else {
+            updatePage(games[gameId]);
+        }
+        function showToast(message, imageSrc = null) {
+            const toast = document.getElementById("toast");
+            document.getElementById("toastText").innerHTML = message;
+            if (imageSrc) {
+                document.getElementById("toastImage").src = imageSrc;
+                document.getElementById("toastImage").style.display = "block";
+            } else {
+                document.getElementById("toastImage").style.display = "none";
+            }
+            toast.classList.add("show");
+            setTimeout(() => toast.classList.remove("show"), 3000);
+        }
+
+
+    </script>
+
+</body>
+
+</html>

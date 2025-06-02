@@ -85,11 +85,7 @@ main {
   padding: 20px;
 }
 
-footer {
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-}
+
 
 
 
@@ -399,6 +395,9 @@ footer {
   font-size: 18px;
   cursor: pointer;
 }
+
+
+
 
 
 
@@ -1468,4 +1467,301 @@ button {
 
 .thumb.active {
   border-color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.game-card {
+  position: relative;
+  width: 250px;
+  overflow: hidden;
+  border-radius: 10px;
+  cursor: pointer;
+  height: 300px;
+}
+
+.game-card img {
+  width: 150%;
+  display: block;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+  height: 150px;
+}
+
+.game-card:hover img {
+  transform: scale(1.03);
+}
+
+.info-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.game-title {
+  font-size: 18px;
+  font-weight: 600;
+  text-shadow: 0 0 5px #00ff99;
+}
+
+.game-price {
+  font-size: 16px;
+  color: #00ff99;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css');
+
+.epic-footer {
+  background: #0f0f0f;
+  color: #d1d1d1;
+  padding: 60px 30px 30px;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.footer-content {
+  max-width: 1250px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.footer-logo img {
+  height: 65px;
+  margin-bottom: 25px;
+  filter: brightness(1.2);
+}
+
+.footer-menus {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 120px;
+}
+
+.menu h4 {
+  color: #f2f2f2;
+  margin-bottom: 20px;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.menu a {
+  display: block;
+  color: #aaa;
+  text-decoration: none;
+  margin: 8px 0;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.menu a:hover {
+  color: #fff;
+  transform: translateX(4px);
+}
+
+.footer-social {
+  margin-top: 35px;
+}
+
+.footer-social a {
+  color: #ccc;
+  font-size: 22px;
+  margin-right: 18px;
+  transition: all 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: #fff;
+  transform: scale(1.2);
+}
+
+.footer-bottom {
+  border-top: 1px solid #2a2a2a;
+  margin-top: 50px;
+  padding-top: 20px;
+  text-align: center;
+  font-size: 13px;
+  color: #777;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-menus {
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 30px;
+  }
+
+  .footer-social {
+    margin-top: 25px;
+  }
 }
