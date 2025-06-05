@@ -424,6 +424,16 @@ main {
   margin-left: 35px;
   margin-bottom: -180px;
 }
+.cards-container2 {
+  display: flex;
+  flex-wrap: wrap;
+  /* Kartların alt satıra geçmesini sağlar */
+  gap: 40px;
+  margin-top: 100px;
+  margin-left: 35px;
+  margin-bottom: 220px;
+
+}
 
 .game-card {
   background: #222;
@@ -435,6 +445,18 @@ main {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
 }
+
+.free-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #28a745;
+  color: white;
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 4px;
+}
+
 
 .game-card:hover {
   transform: translateY(-5px);
@@ -841,37 +863,6 @@ main {
 
 
 
-/* Puanlama Sistemi */
-.rating {
-  display: flex;
-  gap: 5px;
-  cursor: pointer;
-  margin: 10px 0;
-  margin-left: 65px;
-}
-
-.star {
-  font-size: 20px;
-  color: #ddd;
-}
-
-.star:hover,
-.star.selected {
-  color: #f39c12;
-}
-
-button {
-  padding: 10px 20px;
-  background-color: #0078f2;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-
-
-
 
 
 
@@ -994,120 +985,6 @@ button {
 
 
 
-
-/* Kart container */
-.free-cards-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  margin: 50px;
-  justify-content: center;
-  margin-bottom: 200px;
-}
-
-.free-game-card {
-  background: #222;
-  width: 250px;
-  border-radius: 8px;
-  overflow: hidden;
-  color: white;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease;
-}
-
-.free-game-card:hover {
-  transform: translateY(-5px);
-}
-
-.free-game-card .card-img {
-  position: relative;
-}
-
-.free-game-card img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-}
-
-.free-badge {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background: #28a745;
-  color: white;
-  padding: 5px 10px;
-  font-size: 12px;
-  border-radius: 4px;
-}
-
-.free-game-card .card-content {
-  padding: 10px;
-}
-
-.free-game-card h3 {
-  font-size: 16px;
-  margin: 0;
-  color: #f1f1f1;
-}
-
-.free-game-card p {
-  font-size: 14px;
-  color: #aaa;
-}
-
-.free-claim-btn {
-  background-color: #ff4141;
-  color: white;
-  border: none;
-  font-size: 14px;
-  padding: 10px;
-  border-radius: 5px;
-  width: 100%;
-  cursor: pointer;
-  transition: background 0.3s ease;
-  margin-top: 10px;
-}
-
-.free-claim-btn:hover {
-  background-color: black;
-  color: white;
-}
-
-/* Mesaj kutusu */
-.cart-message {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  padding: 12px 20px;
-  border-radius: 8px;
-  color: white;
-  font-size: 16px;
-  z-index: 9999;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  animation: fadeIn 0.3s ease;
-}
-
-.cart-message.success {
-  background-color: #28a745;
-  width: 500px;
-}
-
-.cart-message.error {
-  background-color: #dc3545;
-  width: 500px;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
 
 
