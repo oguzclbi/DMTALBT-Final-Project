@@ -61,8 +61,6 @@ nav a:hover {
 
 
 
-
-
 * {
   margin-bottom: 0;
   padding: 0;
@@ -84,12 +82,6 @@ main {
   flex: 1;
   padding: 20px;
 }
-
-
-
-
-
-
 
 
 
@@ -145,7 +137,7 @@ main {
 
 .slide-content p {
   font-size: 20px;
-  margin-bottom: 15px;
+  margin-bottom: 70px;
   background-size: cover;
 }
 
@@ -234,13 +226,6 @@ main {
 
 
 
-
-
-
-
-
-
-
 .header {
   background: url("https://via.placeholder.com/1200x500/0078f2/ffffff?text=Cyber+War+2099") no-repeat center center;
   background-size: cover;
@@ -289,9 +274,13 @@ main {
   margin-bottom: 10px;
 }
 
-.price {
-  font-size: 24px;
+.price2 {
+  font-size: 30px;
   margin: 15px 0;
+  color:white;
+  box-shadow: 0 4px 15px rgba(0, 163, 255, 0.6);
+  margin-top: 40px;
+  border-radius: 10px;
 }
 
 .btn {
@@ -330,13 +319,6 @@ main {
   padding: 10px;
   border-radius: 6px;
 }
-
-
-
-
-
-
-
 
 
 
@@ -406,15 +388,6 @@ main {
 
 
 
-
-
-
-
-
-
-
-
-
 .cards-container {
   display: flex;
   flex-wrap: wrap;
@@ -424,6 +397,7 @@ main {
   margin-left: 35px;
   margin-bottom: -180px;
 }
+
 .cards-container2 {
   display: flex;
   flex-wrap: wrap;
@@ -578,41 +552,10 @@ main {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* logged-in sınıfı ikonu mavi yapacak */
 .logged-in {
   color: #00aaff !important;
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -637,24 +580,6 @@ main {
 .cart-message.error {
   background-color: #e63946;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -698,32 +623,6 @@ main {
   color: #333;
   font-size: 16px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -783,11 +682,6 @@ main {
   background: rgba(255, 255, 255, 0.08);
 }
 
-
-
-
-
-
 .lang-menu button {
   background: none;
   color: white;
@@ -805,100 +699,6 @@ main {
 .lang-menu button:hover {
   background: rgba(255, 255, 255, 0.08);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -947,78 +747,6 @@ main {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .epic-store-title {
   font-family: "Open Sans", sans-serif;
   font-size: 22px;
@@ -1033,26 +761,6 @@ main {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .baslik {
   font-size: 48px;
   background: rgba(0, 0, 0, 0.5);
@@ -1060,46 +768,6 @@ main {
   width: 500px;
   margin-top: 150px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1139,46 +807,6 @@ main {
 .category-buttons button:hover {
   background: #005ac1;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1249,60 +877,6 @@ main {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .video-player-container {
   display: flex;
   gap: 20px;
@@ -1357,185 +931,61 @@ main {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.game-card {
-  position: relative;
-  width: 250px;
-  overflow: hidden;
-  border-radius: 10px;
-  cursor: pointer;
-  height: 300px;
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .game-card {
+    position: relative;
+    width: 250px;
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+    height: 300px;
+  }
+
+  .game-card img {
+    width: 150%;
+    display: block;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    height: 150px;
+  }
+
+  .game-card:hover img {
+    transform: scale(1.03);
+  }
+
+  .info-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
+  .game-title {
+    font-size: 18px;
+    font-weight: 600;
+    text-shadow: 0 0 5px #00ff99;
+  }
+
+  .game-price {
+    font-size: 16px;
+    color: #00ff99;
+  }
 }
-
-.game-card img {
-  width: 150%;
-  display: block;
-  border-radius: 10px;
-  transition: transform 0.3s ease;
-  height: 150px;
-}
-
-.game-card:hover img {
-  transform: scale(1.03);
-}
-
-.info-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 10px;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(5px);
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-}
-
-.game-title {
-  font-size: 18px;
-  font-weight: 600;
-  text-shadow: 0 0 5px #00ff99;
-}
-
-.game-price {
-  font-size: 16px;
-  color: #00ff99;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
