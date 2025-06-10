@@ -313,30 +313,48 @@ document.getElementById("userIcon").addEventListener("click", () => {
 
 
 
+const translations = {
+  tr: { label: "TR", welcome: "Hoşgeldiniz!", description: "Bu siteye hoş geldiniz." },
+  en: { label: "EN", welcome: "Welcome!", description: "Welcome to this site." },
+  de: { label: "DE", welcome: "Willkommen!", description: "Willkommen auf dieser Seite." },
+  fr: { label: "FR", welcome: "Bienvenue!", description: "Bienvenue sur ce site." },
+  es: { label: "ES", welcome: "¡Bienvenido!", description: "Bienvenido a este sitio." }
+};
+
 function toggleLangMenu() {
-    const menu = document.getElementById("langMenu");
-    menu.style.display = menu.style.display === "block" ? "none" : "block";
+  const menu = document.getElementById("langMenu");
+  menu.style.display = menu.style.display === "block" ? "none" : "block";
 }
 
 function selectLanguage(lang) {
-    const translations = {
-        tr: { label: "TR", welcome: "Hoşgeldiniz!" },
-        en: { label: "EN", welcome: "Welcome!" },
-        de: { label: "DE", welcome: "Willkommen!" },
-        fr: { label: "FR", welcome: "Bienvenue!" },
-        es: { label: "ES", welcome: "¡Bienvenido!" }
-    };
+  localStorage.setItem("lang", lang);
+  document.getElementById("currentLang").textContent = translations[lang].label;
 
-    localStorage.setItem("lang", lang);
-    document.getElementById("currentLang").textContent = translations[lang].label;
-    document.getElementById("welcomeText").textContent = translations[lang].welcome;
-    document.getElementById("langMenu").style.display = "none";
+  // Sayfadaki tüm çevrilecek alanları güncelle
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    el.textContent = translations[lang][key] || el.textContent;
+  });
+
+  // Menü otomatik kapanır
+  document.getElementById("langMenu").style.display = "none";
 }
 
+// Sayfa yüklenirken dili ayarla
 window.onload = function () {
-    const savedLang = localStorage.getItem("lang") || "tr";
-    selectLanguage(savedLang);
+  const savedLang = localStorage.getItem("lang") || "tr";
+  selectLanguage(savedLang);
 };
+
+// Menü dışına tıklanınca menüyü kapat
+window.addEventListener("click", function(e) {
+  const menu = document.getElementById("langMenu");
+  const button = document.querySelector(".lang-btn");
+  if (!menu.contains(e.target) && !button.contains(e.target)) {
+    menu.style.display = "none";
+  }
+});
+
 
 
 
